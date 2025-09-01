@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css/Compradores.css">
+</head>
+<body>
+
+    <!-- Navegación superior -->
+  <nav>
+    <img src="img-principal/logo.png" alt="" class="logo">
+    <div class="menu">
+      <a href="principal.html"><img src="img-principal/hogar.png" alt=""></a>
+      <a href="productos.html"><img src="img-principal/caja-abierta.png" alt=""></a>
+      <a href="#"><img src="img-principal/corazon.png" alt=""></a>
+      <a href="#"><img src="img-principal/carrito-de-compras.png" alt=""></a>
+      <button id="hamburguesaBtn" style="background:none;border:none;">
+        <img src="img-principal/menu-hamburguesa.png" alt="Menú" style="width:18px; margin-left: 28px;">
+      </button>
+    </div>
+  </nav>
+
+    <!-- Menú desplegable -->
+  <div id="menuDesplegable">
+    <a href="" id="abrir-modal">Mi perfil</a>
+    <a href="Ajustes.html">Configuración</a>
+    <a href="cerrar-sesion.html">Cerrar sesión</a>
+    <a href="nosotros-2.html">Sobre Nosotros</a>
+  </div>
+
+<!--AQUI TERMINA EL NAV-->
+
+<!--Aquí empieza el formulario-->
+<div>
+<form id="loginForm" action="compradores.php" method="post">
+    <h2>Iniciar Sesión</h2>
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" placeholder="Nombre completo" required />
+
+    <label for="correo">Correo</label>
+    <input type="email" name="correo" placeholder="Ingrese su correo" required />
+
+    <label for="contraseña">Contraseña</label>
+    <input type="password" name="contraseña" placeholder="Ingrese contraseña" required />
+
+    <label for="nacimiento">Fecha de nacimiento</label>
+    <input type="date" name="nacimiento" required />
+    
+    <label for="genero">Género</label>
+    <select name="genero" required>
+        <option value="" disabled selected hidden>Rubro de la empresa</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Masculino">Masculino</option>
+    </select>
+
+      <a href="Perfil-comprador.html"><button type="button" class="button-primary">Continuar</button></a>
+
+    <div class="signup">
+        ¿No tienes una cuenta? <a href="#">Crea una</a>
+    </div>
+</form>
+</div>
+<!--Aquí termina el formulario-->
+
+<!--Aquí empieza el footer-->
+<footer style="background-color: #1e1e1e; color: white; padding: 50px 20px 30px; font-family: 'Segoe UI', sans-serif; line-height: 1.6;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1200px; margin: auto;">
+      <div style="flex: 1 1 220px; margin-bottom: 20px;">
+        <h4 style="color: #f57c00;">MercaNova</h4>
+        <p style="line-height: 1.6;">Conectamos emprendedores con compradores de todo el país. Apoya lo local, compra inteligente.</p>
+      </div>
+      <div style="flex: 1 1 180px; margin-bottom: 20px;">
+        <h5 style="color: #f57c00;">Enlaces</h5>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="productos.html" style="color: #ccc; text-decoration: none;">Productos</a></li>
+          <li><a href="productos-destacados.html" style="color: #ccc; text-decoration: none;">Destacados</a></li>
+          <li><a href="nosotros.html" style="color: #ccc; text-decoration: none;">Nosotros</a></li>
+          <li><a href="perfil.html" style="color: #ccc; text-decoration: none;">Perfil</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 200px; margin-bottom: 20px;">
+        <h5 style="color: #f57c00;">Contacto</h5>
+        <p style="margin: 5px 0;"><strong>Email:</strong> contacto@mercanova.com</p>
+        <p style="margin: 5px 0;"><strong>Tel:</strong> +503 1234 5678</p>
+        <p style="margin: 5px 0;"><strong>Ubicación:</strong> San Salvador, El Salvador</p>
+      </div>
+      <div style="flex: 1 1 250px;">
+        <h5 style="color: #f57c00;">Suscríbete</h5>
+        <p>Recibe nuestras mejores ofertas en tu correo.</p>
+        <form onsubmit="alert('Gracias por suscribirte'); return false;">
+          <input type="email" placeholder="Tu correo electrónico" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: none; border-radius: 5px;">
+          <button type="submit" style="background-color: #f57c00; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; max-width: 350px;">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+    <div style="text-align: center; padding-top: 20px; border-top: 1px solid #555; margin-top: 30px; font-size: 14px; color: #999;">
+      <p>&copy; 2025 MercaNova. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+<!--Aquí termina el footer-->
+
+<!--Aquí empieza el modal-->
+<div id="modal-fondo" class="modal-fondo oculto">
+  <div class="login-container">
+    <a href="Perfil-comprador.html"><button id="btn-comprador" type="button" class="social-btn">Continuar como comprador</button></a>
+    <a href="Perfil-2.html"><button id="btn-vendedor" type="button" class="social-btn">Continuar como vendedor</button></a>
+
+    <div class="separator">
+      <span>o</span>
+    </div>
+
+    <p id="T-invitado">¿Quieres seguir como invitado?<a href="#" id="btn-invitado">Invitado</a></p>
+  </div>
+</div>
+<!--Aquí termina el modal-->
+
+<script>
+    const contentBlocks = document.querySelectorAll('.content-block');
+    const valueCards = document.querySelectorAll('.value-card');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+      );
+    }
+
+    function animateOnScroll() {
+      contentBlocks.forEach((block) => {
+        if (!block.classList.contains('visible') && isInViewport(block)) {
+          block.classList.add('visible');
+        }
+      });
+      valueCards.forEach((card, i) => {
+        if (!card.classList.contains('show') && isInViewport(card)) {
+          setTimeout(() => card.classList.add('show'), i * 150);
+        }
+      });
+      testimonialCards.forEach((card, i) => {
+        if (!card.classList.contains('show') && isInViewport(card)) {
+          setTimeout(() => card.classList.add('show'), i * 200);
+        }
+      });
+    }
+      const menuBtn = document.getElementById('hamburguesaBtn');
+  const menuDesplegable = document.getElementById('menuDesplegable');
+
+  menuBtn.addEventListener('click', () => {
+    menuDesplegable.style.display = menuDesplegable.style.display === 'none' ? 'block' : 'none';
+  });
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
+  // Mostrar el modal automáticamente después de 1 segundo (por ejemplo)
+  document.addEventListener("DOMContentLoaded", () => {
+    const linkAbrirModal = document.getElementById("abrir-modal");
+    const modal = document.getElementById("modal-fondo");
+    const linkInvitado = document.getElementById("btn-invitado");
+
+    // Abrir modal
+    linkAbrirModal.addEventListener("click", (e) => {
+      e.preventDefault(); // evita que el enlace haga scroll arriba
+      modal.classList.remove("oculto");
+      modal.classList.add("visible");
+    });
+
+    // Cerrar modal como invitado
+    linkInvitado.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.classList.remove("visible");
+      modal.classList.add("oculto");
+    });
+  });
+</script>
+</body>
+</html>

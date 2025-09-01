@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat MercaNova - Don José</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background:#2e5072;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      margin:0;
+    }
+    #chat-container {
+      width:420px;
+      height:560px;
+      background:#ffffff;
+      border-radius:15px;
+      box-shadow:0 6px 25px rgba(0,0,0,0.15);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      border: 2px solid #1c2f5b;
+    }
+    #chat-header {
+      background:#1c2f5b; /* azul oscuro MercaNova */
+      color:#ff7f2a; /* naranja MercaNova */
+      padding:18px;
+      text-align:center;
+      font-weight:bold;
+      font-size:20px;
+      border-bottom: 2px solid #ff7f2a;
+      text-transform: uppercase;
+    }
+    #chatbox {
+      flex:1;
+      padding:20px;
+      overflow-y:auto;
+      background:#eaf0f7; /* azul muy claro */
+    }
+    .msg {
+      max-width:75%;
+      padding:12px 16px;
+      margin:10px 0;
+      border-radius:20px;
+      position:relative;
+      opacity:0;
+      transform:translateY(10px);
+      animation:fadeIn 0.3s forwards;
+      word-wrap: break-word;
+      font-size:14px;
+      line-height:1.4;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    }
+    .user {
+      background:#ff7f2a; /* naranja MercaNova */
+      color:#fff;
+      align-self:flex-end;
+      border-bottom-right-radius:4px;
+    }
+    .don {
+      background:#1c2f5b; /* azul oscuro MercaNova */
+      color:#fff;
+      align-self:flex-start;
+      border-bottom-left-radius:4px;
+    }
+    @keyframes fadeIn {
+      to {opacity:1; transform:translateY(0);}
+    }
+    #input-area {
+      display:flex;
+      padding:12px;
+      background:#f0f3f6;
+      border-top:1px solid #ddd;
+    }
+    #input {
+      flex:1;
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:25px;
+      font-size:14px;
+      outline:none;
+    }
+    #send {
+      background:#ff7f2a; /* naranja MercaNova */
+      color:white;
+      border:none;
+      margin-left:10px;
+      padding:12px 18px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:16px;
+      font-weight:bold;
+      box-shadow:0 2px 5px rgba(0,0,0,0.2);
+      transition:background 0.3s;
+    }
+    #send:hover { background:#e56800; }
+    #chatbox::-webkit-scrollbar { width:6px; }
+    #chatbox::-webkit-scrollbar-thumb { background:#ccc; border-radius:3px; }
+    .typing {
+      font-style:italic;
+      color:#555;
+      margin:5px 0;
+      font-size:13px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <div id="chat-header">Carpintería Don José</div>
+    <div id="chatbox"></div>
+    <div id="input-area">
+      <input id="input" type="text" placeholder="Escribe tu mensaje / Type your message...">
+      <button id="send">➤</button>
+    </div>
+  </div>
+
+  <script>
+    const chatbox = document.getElementById("chatbox");
+    const input = document.getElementById("input");
+    const sendBtn = document.getElementById("send");
+
+    function addMessage(text, sender) {
+      const div = document.createElement("div");
+      div.classList.add("msg", sender);
+      div.innerHTML = text;
+      chatbox.appendChild(div);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function typingEffect(callback) {
+      const typingDiv = document.createElement("div");
+      typingDiv.classList.add("typing");
+      typingDiv.textContent = "Don José está escribiendo...";
+      chatbox.appendChild(typingDiv);
+      chatbox.scrollTop = chatbox.scrollHeight;
+      setTimeout(() => {
+        typingDiv.remove();
+        callback();
+      }, 1000 + Math.random()*1200);
+    }
+
+    function donJoseResponse(msg) {
+      const text = msg.toLowerCase();
+      let response = "Hmm... no entendí bien eso 😅 / Mmm... I didn't understand that 😅";
+
+      // Español
+      if(text.includes("hola") || text.includes("buenas")){
+        response = "¡Hola! 👋 Soy Don José, bienvenido a mi carpintería. ¿Cómo estás hoy?";
+      } else if(text.includes("trabajos") || text.includes("servicios")){
+        response = "Hago muebles a medida, reparaciones de puertas, ventanas y más. 🪚 ¿Quieres ver algunos trabajos recientes?";
+      } else if(text.includes("muebles") || text.includes("productos")){
+        response = "Tengo mesas, sillas, estantes y armarios hechos a mano con madera de calidad. 😎";
+      } else if(text.includes("contacto") || text.includes("teléfono")){
+        response = "Puedes llamarme al +503 7654-3210 o escribirme por WhatsApp. 📲";
+      } else if(text.includes("horario")){
+        response = "Atiendo de Lunes a Sábado, 8:00 AM a 6:00 PM. 🕐";
+      } else if(text.includes("gracias")){
+        response = "¡De nada! 😄 Siempre me alegra ayudar.";
+      } else if(text.includes("adios") || text.includes("bye")){
+        response = "¡Hasta luego! 👋 / See you soon!";
+
+      }
+
+      // Inglés
+      if(text.includes("hello") || text.includes("hi")){
+        response = "Hi! 👋 I'm Don José, welcome to my carpentry. How's your day?";
+      } else if(text.includes("services") || text.includes("work")){
+        response = "I make custom furniture, door/window repairs, and more. 🪚 Do you want to see some recent projects?";
+      } else if(text.includes("furniture") || text.includes("products")){
+        response = "I have tables, chairs, shelves, and cabinets made by hand with quality wood. 😎";
+      } else if(text.includes("contact") || text.includes("phone")){
+        response = "You can call me at +503 7654-3210 or WhatsApp me at the same number. 📲";
+      } else if(text.includes("hours") || text.includes("schedule")){
+        response = "I'm available Monday to Saturday, 8:00 AM to 6:00 PM. 🕐";
+      } else if(text.includes("thanks")){
+        response = "You're welcome! 😄 Happy to help.";
+      } else if(text.includes("bye") || text.includes("goodbye")){
+        response = "See you soon! 👋 / ¡Hasta luego!";
+      }
+
+      typingEffect(() => addMessage(response, 'don'));
+    }
+
+    function sendMessage() {
+      let userMsg = input.value.trim();
+      if(!userMsg) return;
+      addMessage(userMsg, 'user');
+      input.value = "";
+      donJoseResponse(userMsg);
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+    input.addEventListener("keypress", e => { if(e.key==="Enter") sendMessage(); });
+  </script>
+</body>
+</html>

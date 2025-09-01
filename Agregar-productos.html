@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil Vendedor - MERCANOVA</title>
+  <link rel="stylesheet" href="css/Agregar-productos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    main {
+      margin-right: 100px;
+      padding: 2rem;
+    }
+    section {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      margin-left: 10%;
+    }
+    #title{
+      margin-top: 0;
+      color: #f57c00;
+      text-align: center;
+    }
+    h2{
+      margin-top: 0;
+      color: #f57c00;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #f57c00;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #f37b03;
+    }
+    .flex {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .flex > div {
+      flex: 1 1 300px;
+    }
+  </style>
+</head>
+<body>
+    <!-- Navegación superior -->
+  <nav>
+    <img src="img-principal/logo.png" alt="" class="logo">
+    <div class="menu">
+      <a href="principal.html"><img src="img-principal/hogar.png" alt=""></a>
+      <a href="productos.html"><img src="img-principal/caja-abierta.png" alt=""></a>
+      <a href="#"><img src="img-principal/corazon.png" alt=""></a>
+      <a href="#"><img src="img-principal/carrito-de-compras.png" alt=""></a>
+      <button id="hamburguesaBtn" style="background:none;border:none;">
+        <img src="img-principal/menu-hamburguesa.png" alt="Menú" style="width:18px; margin-left: 10px;">
+      </button>
+    </div>
+  </nav>
+
+    <!-- Menú desplegable -->
+  <div id="menuDesplegable">
+    <a href="">Mi perfil</a>
+    <a href="Ajustes.html">Configuración</a>
+    <a href="cerrar-sesion.html">Cerrar sesión</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+  </div>
+  <main>
+
+    <section id="producto">
+      <h2 id="title">Subir un producto</h2>
+      <div class="flex">
+        <div>
+          <label>Nombre del producto<input type="text"></label>
+          <label>Marca<input type="text"></label>
+          <label>Categoría<select><option>Alimentos</option><option>Bebidas</option><option>Artesanías</option><option>Ropa</option></select></label>
+        </div>
+        <div>
+          <label>Área ubicada<input type="text"></label>
+          <label>Precio ($)<input type="number" step="0.01"></label>
+          <label>Stock disponible<input type="number"></label>
+        </div>
+      </div>
+      <label>Descripción<textarea rows="4"></textarea></label>
+      <label>Imágenes del producto<input type="file" multiple></label>
+      <button>Publicar producto</button>
+    </section>
+
+    <section id="gestionar">
+      <h2>Gestionar publicaciones</h2>
+      <p>No hay productos publicados aún.</p>
+    </section>
+
+    <section id="pedidos">
+      <h2>Gestionar pedidos</h2>
+      <p>Aquí podrás ver el estado de cada pedido y actualizarlo.</p>
+    </section>
+
+    <section id="calificaciones">
+      <h2>Calificaciones</h2>
+      <p>No hay calificaciones aún.</p>
+    </section>
+
+    <section id="pagos">
+      <h2>Recibir pagos</h2>
+      <p>Tu cuenta está conectada. Próximo depósito: $0.00</p>
+    </section>
+
+    <section id="entrega">
+      <h2>Opciones de entrega</h2>
+      <label>Tipo de entrega<select><option>Envío a domicilio</option><option>Entrega en punto de venta</option><option>Ambas</option></select></label>
+      <button>Guardar</button>
+    </section>
+  </main>
+
+<!--Aquí empieza el footer-->
+<footer style="background-color: #1e1e1e; color: white; padding: 50px 20px 30px; font-family: 'Segoe UI', sans-serif; line-height: 1.6;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1200px; margin: auto;">
+      <div style="flex: 1 1 220px; margin-bottom: 20px;">
+        <h4 style="color: #f57c00;">MercaNova</h4>
+        <p style="line-height: 1.6;">Conectamos emprendedores con compradores de todo el país. Apoya lo local, compra inteligente.</p>
+      </div>
+      <div style="flex: 1 1 180px; margin-bottom: 20px;">
+        <h5 style="color: #f57c00;">Enlaces</h5>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="productos.html" style="color: #ccc; text-decoration: none;">Productos</a></li>
+          <li><a href="productos-destacados.html" style="color: #ccc; text-decoration: none;">Destacados</a></li>
+          <li><a href="nosotros.html" style="color: #ccc; text-decoration: none;">Nosotros</a></li>
+          <li><a href="perfil.html" style="color: #ccc; text-decoration: none;">Perfil</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 200px; margin-bottom: 20px;">
+        <h5 style="color: #f57c00;">Contacto</h5>
+        <p style="margin: 5px 0;"><strong>Email:</strong> contacto@mercanova.com</p>
+        <p style="margin: 5px 0;"><strong>Tel:</strong> +503 1234 5678</p>
+        <p style="margin: 5px 0;"><strong>Ubicación:</strong> San Salvador, El Salvador</p>
+      </div>
+      <div style="flex: 1 1 250px;">
+        <h5 style="color: #f57c00;">Suscríbete</h5>
+        <p>Recibe nuestras mejores ofertas en tu correo.</p>
+        <form onsubmit="alert('Gracias por suscribirte'); return false;">
+          <input type="email" placeholder="Tu correo electrónico" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: none; border-radius: 5px;">
+          <button type="submit" style="background-color: #f57c00; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; max-width: 350px;">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+    <div style="text-align: center; padding-top: 20px; border-top: 1px solid #555; margin-top: 30px; font-size: 14px; color: #999;">
+      <p>&copy; 2025 MercaNova. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+<!--Aquí termina el footer-->
+  
+<script>
+  const contentBlocks = document.querySelectorAll('.content-block');
+    const valueCards = document.querySelectorAll('.value-card');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+      );
+    }
+
+    function animateOnScroll() {
+      contentBlocks.forEach((block) => {
+        if (!block.classList.contains('visible') && isInViewport(block)) {
+          block.classList.add('visible');
+        }
+      });
+      valueCards.forEach((card, i) => {
+        if (!card.classList.contains('show') && isInViewport(card)) {
+          setTimeout(() => card.classList.add('show'), i * 150);
+        }
+      });
+      testimonialCards.forEach((card, i) => {
+        if (!card.classList.contains('show') && isInViewport(card)) {
+          setTimeout(() => card.classList.add('show'), i * 200);
+        }
+      });
+    }
+      const menuBtn = document.getElementById('hamburguesaBtn');
+  const menuDesplegable = document.getElementById('menuDesplegable');
+
+  menuBtn.addEventListener('click', () => {
+    menuDesplegable.style.display = menuDesplegable.style.display === 'none' ? 'block' : 'none';
+  });
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+</script>
+</body>
+</html>
