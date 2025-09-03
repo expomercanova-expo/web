@@ -1,0 +1,296 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.logo img{
+  width: 200px;
+  height: 50px;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Navegación */
+nav {
+  top: 0;                             /* Alineación en la parte superior */
+  width: 100%;                        /* Ocupa todo el ancho disponible */
+  padding: 20px 40px;                 /* Espaciado interno (arriba/abajo 20px, izquierda/derecha 40px) */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia (70%) */
+  display: flex;                      /* Usamos flexbox para distribuir los elementos internos */
+  justify-content: space-between;    /* Coloca los elementos a los extremos (logo y menú) */
+  align-items: center;               /* Centra verticalmente los elementos */ 
+  z-index: 1000;                     /* Se asegura de estar por encima de otros elementos */
+}
+
+.logo {
+  width: 200px;
+  height: 50px;
+}
+
+.menu a {
+  margin-left: 28px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #f57c00;
+}
+
+/* Sección de productos */
+.productos-section {
+  padding: 80px 30px 40px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.productos-section h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.producto {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.producto img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.producto h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.producto p {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0;
+}
+
+.precio  {
+  font-weight: bold;
+}
+
+.acciones {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.acciones button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.categorias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.categorias  div {
+  position: relative;
+  width: 220px;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.categorias  div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 40px rgb(255, 166, 0);
+}
+
+.categorias img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.categorias h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.categorias > div:hover h3 {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.comprar{
+  background-color: #f57c00;
+}
+.favorito{
+  background-color: #22365d;
+  color: #fff;
+}
+#img_anuncio{
+  height: 400px;
+  width: 600px;
+  border-radius: 25px;
+}
+
+
+/*pop compra*/
+.compra {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pop {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 900px;
+  margin: 50px auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  visibility: hidden;
+  transition: transform 0.4s ease, top 0.4s ease;
+}
+
+.pop img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+.pop h2 {
+  font-size: 36px;
+  color: #1f2d47;
+}
+
+.pop h5 {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: right;
+  color: #555;
+}
+
+.pop button {
+  width: 100%;
+  max-width: 400px;
+  margin: 30px auto 0;
+  padding: 12px 0;
+  display: block;
+  background-color: rgb(31, 45, 71);
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pop button:hover {
+  background-color: #22365d;
+}
+
+.open-poppup {
+  visibility: visible;
+  top: 80%;
+  transform: translate(-50%, 100%) scale(1);
+  box-shadow: 0 0 40px rgba(255, 166, 0, 0.5);
+}
+
+/* Carrusel */
+.carousel-container {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+  width: 100%;
+  flex: 1 0 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-30%);
+}
+
+.button {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+

@@ -1,0 +1,349 @@
+/* Reseteo general para evitar márgenes y paddings por defecto en todos los elementos */
+* {
+    margin: 0;                /* Elimina cualquier margen por defecto */
+    padding: 0;               /* Elimina cualquier relleno por defecto */
+    box-sizing: border-box;  /* Incluye el padding y borde dentro del tamaño total del elemento */
+  }
+  
+  /* Estilos generales del body */
+  body {
+    font-family: sans-serif; /* Fuente principal para todo el sitio */
+    background-color: white;           /* Fondo blanco muy claro */
+    color: #ffffff;                         /* Color del texto en gris oscuro */
+  }
+  
+/* Navegación */
+nav {
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 200px;
+  height: 50px;
+}
+
+.menu a {
+  margin-left: 28px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #f57c00;
+}
+.hero-spacing {
+  margin-top: 120px; /* Ajusta este valor según el alto de tu navbar */
+}
+
+    /* Hero section */
+  .hero {
+    background-image: url(../img-nosotros/fondo.jpg); /* Imagen de fondo */
+    height: 90vh;                     /* Altura igual al alto de la pantalla */
+    display: flex;                     /* Flexbox para centrar contenido */
+    flex-direction: column;           /* Alineación vertical de los elementos */
+    justify-content: center;          /* Centra verticalmente */
+    align-items: center;              /* Centra horizontalmente */
+    text-align: center;               /* Centra el texto */
+    padding: 20px;                    /* Espaciado interno */
+    padding-top: 100px;               /* Espacio superior para no cubrir el nav */
+    filter: brightness(85%);          /* Oscurece un poco la imagen de fondo */
+  }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .hero .content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    /* About section */
+    .about-section {
+      max-width: 900px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+      color: #444;
+    }
+
+    .content-block {
+      background: #fff9f0;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(245, 124, 0, 0.25);
+      padding: 30px 35px;
+      margin-bottom: 50px;
+
+      /* Inicial estado para animar */
+      opacity: 0;
+      animation-fill-mode: forwards;
+      animation-duration: 1s;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Cartas que entran desde la izquierda */
+    .content-block.left {
+      transform: translateX(-60px);
+    }
+
+    /* Cartas que entran desde la derecha */
+    .content-block.right {
+      transform: translateX(60px);
+    }
+
+    /* Cuando se vuelve visible, animamos */
+    .content-block.left.visible {
+      animation-name: slideInLeft;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .content-block.right.visible {
+      animation-name: slideInRight;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Animaciones */
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Títulos naranjas */
+    h2, h3 {
+      color: #f57c00;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    /* Texto */
+    p {
+      font-weight: 500;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #746868;
+    }
+
+   #text{
+      font-weight: 500;
+      font-size:30px;
+      line-height: 1.6;
+      color: #d4c8c8;
+   }
+
+    /* Core values section */
+    .values-section {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+    }
+
+    .values-section h2 {
+      text-align: center;
+      color: #ff8c00;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .value-card {
+      background-color: #fff3e0;
+      padding: 25px 20px;
+      border-radius: 14px;
+      box-shadow: 0 6px 15px rgba(255,140,0,0.3);
+      text-align: center;
+      font-weight: 600;
+      color: #ff8c00;
+      cursor: default;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .value-card p {
+      margin-top: 10px;
+      font-weight: 400;
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.3;
+    }
+
+    .value-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stats section */
+    .stats-section {
+      background-color: #fff8e1;
+      color: #ff8c00;
+      padding: 60px 20px;
+      text-align: center;
+      margin: 0 auto 80px;
+      max-width: 900px;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(255,140,0,0.3);
+    }
+
+    .stats-grid {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    .stat-labels {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #d18e00;
+      font-size: 1.1rem;
+    }
+
+    /* Testimonials section */
+    .testimonials-section {
+      max-width: 900px;
+      margin: 0 auto 100px;
+      padding: 0 20px;
+      text-align: center;
+      color: #444;
+    }
+
+    .testimonials-section h2 {
+      font-size: 2.5rem;
+      color: #ff8c00;
+      margin-bottom: 50px;
+      font-weight: 700;
+    }
+
+    .testimonials-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .testimonial-card {
+      background: #fff3e0;
+      width: 220px;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(255,140,0,0.3);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      font-style: italic;
+      color: #444;
+      cursor: default;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-card p {
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .testimonial-card h4 {
+      font-weight: 700;
+      color: #f57c00;
+      font-style: normal;
+      font-size: 1rem;
+    }
+
+    .testimonial-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Animación fadeUp para hero */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .stats-grid, .stat-labels {
+        flex-direction: column;
+        gap: 25px;
+        font-size: 2rem;
+      }
+      nav {
+        padding: 10px 20px;
+      }
+      nav .menu a {
+        margin-left: 15px;
+        font-size: 14px;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+    }

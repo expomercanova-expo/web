@@ -1,0 +1,638 @@
+/* Reseteo general para evitar márgenes y paddings por defecto en todos los elementos */
+* {
+    margin: 0;                /* Elimina cualquier margen por defecto */
+    padding: 0;               /* Elimina cualquier relleno por defecto */
+    box-sizing: border-box;  /* Incluye el padding y borde dentro del tamaño total del elemento */
+  }
+  
+  /* Estilos generales del body */
+  body {
+    font-family: sans-serif; /* Fuente principal para todo el sitio */
+    background-color: white;           /* Fondo blanco muy claro */
+    color: #333;                         /* Color del texto en gris oscuro */
+  }
+  
+  /* Estilos para la barra de navegación */
+  nav {
+    top: 0;                             /* Alineación en la parte superior */
+    width: 100%;                        /* Ocupa todo el ancho disponible */
+    padding: 20px 40px;                 /* Espaciado interno (arriba/abajo 20px, izquierda/derecha 40px) */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia (70%) */
+    display: flex;                      /* Usamos flexbox para distribuir los elementos internos */
+    justify-content: space-between;    /* Coloca los elementos a los extremos (logo y menú) */
+    align-items: center;               /* Centra verticalmente los elementos */ 
+    z-index: 1000;                     /* Se asegura de estar por encima de otros elementos */
+  }
+  .logo {
+    width: 200px;
+    height: 50px;
+  }
+  
+  /* Estilo para los enlaces del menú */
+  .menu a {
+    margin-left: 28px;             /* Espacio entre los enlaces */
+    color: white;                  /* Color del texto */
+    text-decoration: none;         /* Sin subrayado */
+    font-weight: 500;              /* Peso de fuente medio */
+    transition: color 0.3s;        /* Transición suave de color en hover */
+  }
+  
+  /* Cambio de color al pasar el mouse por los enlaces */
+  .menu a:hover {
+    color: #f57c00;                /* Color naranja al pasar el mouse */
+  }
+  
+  /* Sección principal con imagen de fondo */
+  .hero {
+    background-image: url(../img-principal/Fondo-2.png); /* Imagen de fondo */
+    height: 90vh;                     /* Altura igual al alto de la pantalla */
+    display: flex;                     /* Flexbox para centrar contenido */
+    flex-direction: column;           /* Alineación vertical de los elementos */
+    justify-content: center;          /* Centra verticalmente */
+    align-items: center;              /* Centra horizontalmente */
+    text-align: center;               /* Centra el texto */
+    padding: 20px;                    /* Espaciado interno */
+    padding-top: 100px;               /* Espacio superior para no cubrir el nav */
+    filter: brightness(85%);          /* Oscurece un poco la imagen de fondo */
+  }
+  
+  /* Título principal en la sección hero */
+  .hero h1 {
+    font-size: 48px;                  /* Fuente muy grande */
+    font-weight: bold;               /* Negrita */
+    margin-bottom: 10px;             /* Espacio inferior */
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.6); /* Sombra para mejor legibilidad */
+    color: white;                    /* Texto blanco */
+  }
+  
+  /* Párrafo debajo del título en la sección hero */
+  .hero p {
+    font-size: 20px;                 /* Fuente mediana */
+    margin-bottom: 20px;            /* Espacio inferior */
+    color: white;                   /* Texto blanco */
+  }
+  
+  /* Contenedor de la barra de búsqueda */
+  .search-box {
+    background-color: white;        /* Fondo blanco */
+    border-radius: 25px;            /* Bordes redondeados tipo píldora */
+    display: flex;                  /* Flexbox para alinear input y botón */
+    width: 90%;                     /* Ancho del 90% del contenedor padre */
+    max-width: 600px;               /* Límite máximo de ancho */
+    margin-bottom: 20px;            /* Espacio inferior */
+  }
+  
+  /* Estilos para el input de búsqueda */
+  .search-box input {
+    flex: 1;                        /* Ocupa todo el espacio restante */
+    padding: 10px 20px;             /* Espaciado interno */
+    border: none;                   /* Sin borde */
+    border-radius: 25px 0 0 25px;   /* Bordes redondeados sólo a la izquierda */
+    font-size: 16px;                /* Tamaño del texto */
+    color: #333;                    /* Color del texto */
+  }
+  
+  /* Botón de búsqueda */
+  .search-box button {
+    background-color: #f57c00;      /* Naranja vibrante */
+    border: none;                   /* Sin borde */
+    padding: 10px 20px;             /* Espaciado interno */
+    color: white;                   /* Texto blanco */
+    font-weight: bold;             /* Negrita */
+    border-radius: 0 25px 25px 0;   /* Bordes redondeados sólo a la derecha */
+    cursor: pointer;               /* Cursor tipo mano */
+    transition: background-color 0.3s; /* Transición de color al hacer hover */
+  }
+  
+  /* Cambio de color del botón al hacer hover */
+  .search-box button:hover {
+    background-color: #e65100;      /* Naranja más oscuro */
+  }
+  
+
+  /* Sección general de productos */
+  .productos-section {
+    padding: 40px 20px;              /* Espaciado interno (arriba/abajo 40px, lados 20px) */
+    background-color: #f4f4f4;       /* Fondo gris claro */
+    text-align: center;              /* Centra el texto */
+  }
+  
+  /* Título de la sección productos */
+  .productos-section h2 {
+    font-size: 32px;                 /* Tamaño de fuente grande */
+    margin-bottom: 20px;            /* Espacio inferior */
+    color: #333;                    /* Texto gris oscuro */
+  }
+  
+  /* Contenedor de todos los productos */
+  .productos {
+    display: grid;                   /* Usamos grid para organizar los productos */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas adaptables */
+    gap: 20px;                       /* Espacio entre productos */
+    max-width: 1200px;              /* Máximo ancho del grid */
+    margin: auto;                   /* Centrado horizontal automático */
+  }
+  
+  /* Estilo de cada producto */
+  .producto {
+    background-color: white;        /* Fondo blanco */
+    border-radius: 10px;            /* Bordes redondeados */
+    padding: 20px;                  /* Espaciado interno */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+    transition: transform 0.3s;     /* Transición para el efecto hover */
+  }
+  .metodoDePago{
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+  
+  /* Animación al pasar el mouse sobre un producto */
+  .producto:hover {
+    transform: translateY(-5px);    /* Mueve el producto ligeramente hacia arriba */
+  }
+  
+  /* Imagen del producto */
+  .producto img {
+    width: 100%;                    /* Ancho completo del contenedor */
+    height: 180px;                  /* Altura fija */
+    object-fit: cover;              /* Corta o ajusta la imagen sin distorsión */
+    border-radius: 10px;            /* Bordes redondeados */
+    margin-bottom: 10px;            /* Espacio debajo de la imagen */
+  }
+  
+  /* Nombre del producto */
+  .producto h3 {
+    font-size: 20px;                /* Tamaño mediano de fuente */
+    color: #333;                    /* Color gris oscuro */
+  }
+  
+  /* Descripción del producto */
+  .producto p {
+    font-size: 14px;                /* Fuente pequeña */
+    color: #666;                    /* Gris más claro */
+    margin: 5px 0;                  /* Espaciado vertical */
+  }
+  
+  /* Precio del producto */
+  .producto .precio {
+    color: #f57c00;                 /* Naranja llamativo */
+    font-weight: bold;             /* Texto en negrita */
+  }
+  
+  /* Contenedor para los botones de acción (comprar, favorito) */
+  .producto .acciones {
+    margin-top: 10px;              /* Espacio superior */
+    display: flex;                 /* Flexbox para alinear botones */
+    gap: 10px;                     /* Espacio entre botones */
+    justify-content: center;       /* Centrado horizontal */
+  }
+  
+  /* Estilo general de los botones */
+  .acciones button {
+    padding: 8px 12px;             /* Espaciado interno */
+    border: none;                  /* Sin borde */
+    border-radius: 5px;            /* Bordes redondeados */
+    cursor: pointer;               /* Cursor de mano */
+    font-size: 14px;               /* Tamaño del texto */
+  }
+  
+  /* Botón "Comprar" */
+  .comprar {
+    background-color: #f57c00;     /* Verde oscuro */
+    color: white;                  /* Texto blanco */
+  }
+  
+  /* Botón "Favorito" */
+  .favorito {
+    background-color: #22365d;     /* Azul claro */
+    color: white;                  /* Texto blanco */
+  }
+.telefono-inteligente{
+  display: flex;
+}
+  .productos-section {
+    padding: 40px 20px;              /* Espaciado interno (arriba/abajo 40px, lados 20px) */
+    background-color: #f4f4f4;       /* Fondo gris claro */
+    text-align: center;              /* Centra el texto */
+  }
+.producto-4 {
+    background-color: white;        /* Fondo blanco */
+    border-radius: 10px;            /* Bordes redondeados */
+    padding: 20px;                  /* Espaciado interno */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+    transition: transform 0.3s;     /* Transición para el efecto hover */
+  }
+.producto-4 img{
+  width: 100%;
+  max-height: 200px; /* ajusta según necesites */
+  object-fit: contain;
+}
+.producto-4:hover {
+    transform: translateY(-5px);    /* Mueve el producto ligeramente hacia arriba */
+  }
+  .producto-4 h3 {
+    font-size: 20px;                /* Tamaño mediano de fuente */
+    color: #333;                    /* Color gris oscuro */
+  }
+  .producto-4 p {
+    font-size: 14px;                /* Fuente pequeña */
+    color: #666;                    /* Gris más claro */
+    margin: 5px 0;                  /* Espaciado vertical */
+  }
+  .producto-4 .precio {
+    color: #f57c00;                 /* Naranja llamativo */
+    font-weight: bold;             /* Texto en negrita */
+  }
+  .producto-4 .acciones {
+    margin-top: 10px;              /* Espacio superior */
+    display: flex;                 /* Flexbox para alinear botones */
+    gap: 10px;                     /* Espacio entre botones */
+    justify-content: center;       /* Centrado horizontal */
+  }
+  
+  /* Estilo general de los botones */
+  .acciones-4 button {
+    padding: 8px 12px;             /* Espaciado interno */
+    border: none;                  /* Sin borde */
+    border-radius: 5px;            /* Bordes redondeados */
+    cursor: pointer;               /* Cursor de mano */
+    font-size: 14px;               /* Tamaño del texto */
+  }
+  
+    .cards-fondo {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80);
+  background-size: 600% 600%;
+  animation: brilloFondo 10s ease infinite;
+  padding: 40px 20px;
+  overflow-x: auto;
+}
+
+@keyframes brilloFondo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Cards horizontales */
+.cards-section {
+  padding: 60px 20px;
+  background: #fff9f0; /* Fondo igual al del sitio principal */
+  color: black;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.scroll-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-cards::-webkit-scrollbar {
+  height: 8px;
+}
+.scroll-cards::-webkit-scrollbar-thumb {
+  background: #F8A01A;
+  border-radius: 4px;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 280px;
+  background: white;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 16px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.card p {
+  margin: 0 16px 16px;
+  font-size: 16px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0 16px 16px;
+  padding: 10px 20px;
+  background-color: #F8A01A;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Fondo de color más abajo */
+.color-fondo {
+  background-color: #F8A01A;
+  padding: 60px 20px;
+  color: #fff9f0;
+  text-align: center;
+}
+/* ===== ESTILOS PARA FAVORITOS ===== */
+.favorito-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.favorito-btn:hover {
+  background-color: rgba(245, 124, 0, 0.1);
+}
+
+.heart-icon {
+  font-size: 1.5rem;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.heart-icon.active {
+  color: #f57c00;
+  font-weight: 900;
+}
+
+/* ===== ESTILOS PARA ALERTAS ===== */
+.sweet-popup {
+  border-radius: 12px !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.sweet-title {
+  color: #333 !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+}
+
+.sweet-confirm-btn {
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  padding: 8px 24px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.sweet-confirm-btn:hover {
+  background-color: #e67300 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Animación de corazón latiendo */
+@keyframes heartBeat {
+  0% { transform: scale(0.5); }
+  25% { transform: scale(1); }
+  40% { transform: scale(0.5); }
+  60% { transform: scale(1); }
+  100% { transform: scale(0.5); }
+}
+
+.swal2-heart {
+  color: #f57c00;
+  font-size: 4rem;
+  animation: heartBeat 1s cubic-bezier(0.4, 0, 0.6, 1) both;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para el botón comprar cuando está activo */
+.comprar.activo {
+  background-color: #FF5722 !important; /* Naranja */
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(255, 87, 34, 0.4);
+}
+
+/* Estilo para el contador de compras */
+#contador-compras .contador-numero {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #f57c00;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Animación para el botón */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.comprar.activo {
+  animation: pulse 0.5s ease;
+  color: #4ade80;
+}
+
+/* Estilos para el botón de carrito */
+.comprar {
+  background-color: #f57c00;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.comprar:hover {
+  background-color: #e65100;
+  transform: scale(1.1);
+}
+
+.comprar i {
+  font-size: 1.2rem;
+}
+
+/* Estado activo (producto en carrito) */
+.comprar.activo {
+  background-color: #4CAF50;
+}
+
+.comprar.activo i {
+  color: white;
+}
+
+/* Botón eliminar (aparece junto al carrito cuando está activo) */
+.eliminar-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  display: none;
+  transition: all 0.3s;
+}
+
+.comprar.activo + .eliminar-btn {
+  display: inline-block;
+}
+
+/* Agrega al final de tu CSS */
+.eliminar-btn {
+  background-color: #e74c3c !important;
+  color: white !important;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: none; /* Oculto por defecto */
+}
+
+.eliminar-btn:hover {
+  background-color: #c0392b !important;
+}
+
+/* Mostrar eliminar cuando el producto está comprado */
+.comprar.activo + .eliminar-btn {
+  display: inline-block;
+}
+  
+/*El estilizado para el modal*/
+.modal-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.modal-fondo.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.login-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  animation: scaleIn 0.4s ease;
+}
+
+.social-btn {
+  background-color: #f57c00;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 400px;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.social-btn:hover{
+  background-color: #ec7f11;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 400px;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.separator::before {
+  margin-right: 10px;
+}
+
+.separator::after {
+  margin-left: 10px;
+}
+
+#btn-invitado{
+  text-decoration: none;
+  color: #f57c00;
+  text-align: center;
+}
+
+#T-invitado{
+  text-align: center;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.oculto {
+  opacity: 0;
+  pointer-events: none;
+}

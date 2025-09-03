@@ -1,0 +1,154 @@
+/* Reseteo general para evitar márgenes y paddings por defecto en todos los elementos */
+* {
+    margin: 0;                /* Elimina cualquier margen por defecto */
+    padding: 0;               /* Elimina cualquier relleno por defecto */
+    box-sizing: border-box;  /* Incluye el padding y borde dentro del tamaño total del elemento */
+  }
+  
+  /* Estilos generales del body */
+  body {
+    font-family: sans-serif; /* Fuente principal para todo el sitio */
+    background-color: #fdfdfd;           /* Fondo blanco muy claro */
+    color: #333;                         /* Color del texto en gris oscuro */
+  }
+  
+  /* Estilos para la barra de navegación */
+  nav {
+    position: fixed;                    /* Fija la barra en la parte superior de la pantalla */
+    top: 0;                             /* Alineación en la parte superior */
+    width: 100%;                        /* Ocupa todo el ancho disponible */
+    padding: 20px 40px;                 /* Espaciado interno (arriba/abajo 20px, izquierda/derecha 40px) */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia (70%) */
+    display: flex;                      /* Usamos flexbox para distribuir los elementos internos */
+    justify-content: space-between;    /* Coloca los elementos a los extremos (logo y menú) */
+    align-items: center;               /* Centra verticalmente los elementos */
+    color: white;                      /* Color del texto en blanco */
+    z-index: 1000;                     /* Se asegura de estar por encima de otros elementos */
+  }
+  
+  /* Estilo para el logo */
+  .logo {
+    font-size: 24px;     /* Tamaño de fuente grande */
+    font-weight: bold;   /* Fuente en negrita */
+    color: #f57c00;      /* Color naranja vibrante */
+  }
+  .logo-{
+        height: 50px;
+  }
+  
+  /* Estilo para los enlaces del menú */
+  .menu a {
+    margin-left: 22px;             /* Espacio entre los enlaces */
+    color: white;                  /* Color del texto */
+    text-decoration: none;         /* Sin subrayado */
+    font-weight: 500;              /* Peso de fuente medio */
+    transition: color 0.3s;        /* Transición suave de color en hover */
+  }
+  
+  /* Cambio de color al pasar el mouse por los enlaces */
+  .menu a:hover {
+    color: #f57c00;                /* Color naranja al pasar el mouse */
+  }
+
+h1 {
+  color: white;
+  text-align: left;
+}
+
+  .cards-fondo {
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80);
+  background-size: 600% 600%;
+  animation: brilloFondo 10s ease infinite;
+  padding: 40px 20px;
+  overflow-x: auto;
+}
+
+@keyframes brilloFondo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Cards horizontales */
+.cards-section {
+  padding: 60px 20px;
+  background: #1f2447; /* Fondo igual al del sitio principal */
+  color: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.scroll-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-cards::-webkit-scrollbar {
+  height: 8px;
+}
+.scroll-cards::-webkit-scrollbar-thumb {
+  background: #F8A01A;
+  border-radius: 4px;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 280px;
+  background: white;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 16px;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 0 16px 16px;
+  font-size: 16px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0 16px 16px;
+  padding: 10px 20px;
+  background-color: #F8A01A;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Fondo de color más abajo */
+.color-fondo {
+  background-color: #F8A01A;
+  padding: 60px 20px;
+  color: #1f2447;
+  text-align: center;
+}
+#MacetaBarro{
+  height: 200px;
+  width: 150px;
+  
+}

@@ -1,0 +1,177 @@
+* {
+    margin: 0;                /* Elimina cualquier margen por defecto */
+    padding: 0;               /* Elimina cualquier relleno por defecto */
+    box-sizing: border-box;  /* Incluye el padding y borde dentro del tamaño total del elemento */
+  }
+  
+/* Estilos generales del body */
+body {
+    font-family: sans-serif; /* Fuente principal para todo el sitio */
+    background-color: rgb(252, 249, 249);           /* Fondo blanco muy claro */
+    color: #333;                         /* Color del texto en gris oscuro */
+}
+
+/*Aquí empieza el estilo del menu desplegable*/
+#menuDesplegable {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 40px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    #menuDesplegable a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    #menuDesplegable a:hover {
+      background-color: #f57c00;
+      color: white;
+    }
+    #hamburguesaBtn{
+      cursor: pointer;
+    }
+
+
+
+  /* Navegación */
+nav {
+  top: 0;                             /* Alineación en la parte superior */
+  width: 100%;                        /* Ocupa todo el ancho disponible */
+  padding: 20px 40px;                 /* Espaciado interno (arriba/abajo 20px, izquierda/derecha 40px) */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia (70%) */
+  display: flex;                      /* Usamos flexbox para distribuir los elementos internos */
+  justify-content: space-between;    /* Coloca los elementos a los extremos (logo y menú) */
+  align-items: center;               /* Centra verticalmente los elementos */ 
+  z-index: 1000;                     /* Se asegura de estar por encima de otros elementos */
+}
+
+.logo {
+  width: 200px;
+  height: 50px;
+}
+
+.menu a {
+  margin-left: 28px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #f57c00;
+}
+
+
+/* --- Card de usuario (arriba, ancho completo con margen) --- */
+.user-card {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f57c00, #ff3c3c);
+  color: white;
+  margin: 30px;           /* <<< margen alrededor */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  height: 220px;          /* puedes cambiar el alto */
+  width: 600px;
+}
+
+.main-content{
+  margin-top: 0;
+  margin-left: 25%;
+}
+
+.user-card .profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  margin-right: 25px;
+}
+
+.user-info h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  text-align: left;
+}
+
+.user-info p {
+  margin: 0 0 10px;
+  font-size: 16px;
+  opacity: 0.9;
+  text-align: left;
+}
+
+/* --- Grid para las demás cards --- */
+.profile-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+  margin-left: 10%;
+  margin-bottom: 35px;
+}
+
+/* Tarjetas de datos */
+.profile-card {
+  background: #fff;
+  margin-top: 30px;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 200px;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Iconos */
+.profile-card .icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+/* Texto */
+.profile-card h2 {
+  margin: 10px 0 5px;
+  font-size: 20px;
+  color: #f57c00;
+}
+
+.profile-card p {
+  margin: 0 0 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Botón editar */
+.edit-btn {
+  display: inline-block;
+  background: #f57c00;
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.edit-btn:hover {
+  background: #e65c00;
+}

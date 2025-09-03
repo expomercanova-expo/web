@@ -1,0 +1,275 @@
+/* Reseteo general para evitar márgenes y paddings por defecto en todos los elementos */
+* {
+    margin: 0;                /* Elimina cualquier margen por defecto */
+    padding: 0;               /* Elimina cualquier relleno por defecto */
+    box-sizing: border-box;  /* Incluye el padding y borde dentro del tamaño total del elemento */
+  }
+  
+/* Estilos generales del body */
+body {
+    font-family: sans-serif; /* Fuente principal para todo el sitio */
+    background-color: rgb(252, 249, 249);           /* Fondo blanco muy claro */
+    color: #333;                         /* Color del texto en gris oscuro */
+}
+
+#menuDesplegable {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 40px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    #menuDesplegable a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    #menuDesplegable a:hover {
+      background-color: #f57c00;
+      color: white;
+    }
+    #hamburguesaBtn{
+      cursor: pointer;
+    }
+
+
+
+  /* Navegación */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.80);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 200px;
+  height: 50px;
+}
+
+.menu a {
+  margin-left: 28px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #f57c00;
+}
+
+
+
+/*Aquí empieza el estilizado del formulario*/
+#loginForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10% auto 50px auto;
+  justify-content: center;
+  background-color: #ffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+select{
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+input{
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+  display: inline-block;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+label{
+  width: 100%;       
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: 500;
+  
+}
+
+.button-primary {
+  background-color: #f8a01a;
+  color: white;
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-primary:hover {
+  background-color:  #e9920f;
+}
+
+.signup {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.signup a {
+  color: #f57c00;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+select:invalid{
+  color: gray;
+}
+
+   
+  .menu a {
+    margin-left: 22px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+/*El estilizado para el modal*/
+.modal-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.modal-fondo.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.login-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  animation: scaleIn 0.4s ease;
+}
+
+.social-btn {
+  background-color: #f57c00;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 400px;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.social-btn:hover{
+  background-color: #ec7f11;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 400px;
+  border-radius: 15px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.separator::before {
+  margin-right: 10px;
+}
+
+.separator::after {
+  margin-left: 10px;
+}
+
+#btn-invitado{
+  text-decoration: none;
+  color: #f57c00;
+  text-align: center;
+}
+
+#T-invitado{
+  text-align: center;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.oculto {
+  opacity: 0;
+  pointer-events: none;
+}
