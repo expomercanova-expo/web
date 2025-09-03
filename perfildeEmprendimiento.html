@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil -vendedor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/pincipal.css">
+
+<!--ESTE CÓDIGO ES DESDE LA PERSPECTIVA DEL COMPRADOR-->
+</head>
+<body>   
+  <!-- EL PRIMER NAV EMPIEZA AQUÍ -->
+   
+<nav class="primerCuadro">
+<img src="img-principal/carpenter-design-logo-concept-vector-600nw-2464544747.webp" alt="" id="imgPerfil">
+<ul>
+<li id="usuario">@CarpinteriaDonJosé</li>
+<li id="descripcion">Venta de muebles y juguetes hechos de madera refinada </li>
+<li id="direccion">Alameda Juan Pablo II 226, San Salvador</li>
+<li><div id="entregaPersonal">Entrega Personal</div></li>
+<li><div id="entregaPlataforma">Entrega mediante plataforma</div></li>
+</ul>
+<ul class="contactos">
+<li id="contacto"><h3 >7932 - 0546</h3></li>
+<li><h3 id="redesSociales">@Carpinteria.Don.Jose.of</h3></li>
+<li><h3 id="redesSociales">@Carpinteria Don Jose</h3></li>
+</ul>
+</nav>
+</nav>
+  <!-- EL PRIMER NAV TERMINA AQUÍ -->
+<!--PRODUCTOS DEL SELLER-->
+   <section class="productos-section">
+    <div class="productos">
+      <!-- Producto 1 -->
+      <div class="producto" data-id="1" data-nombre="Sala 3-2-1" data-img="img-productos/JugueteSemiParque.png">
+        <img src="img-productos/JugueteSemiParque.png" alt="Sillon azul" onclick="mostrarDetalle('producto1')"/>
+        <h3>Semi Parque Para Escalar</h3>
+        <p class="precio">$108.00</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 1-->
+      <div id="producto1" class="info-producto" style="display: none;">
+        <h2>Semi Parque Kinder</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/JugueteSemiParque.png" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descrpción</p>
+      <h5>Juguete de exterior para escalar hecho de madera maciza hecho para niños de entre 3-5 años</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 150cm, profundidad 70cm, altura 70cm</h5>
+      <p> Recomendaciones:</p>
+      <h5>Mayores de 3 años</h5>
+      <button>$108.00</button>
+    </div>
+  </div>
+  </div>
+
+      <!-- Producto 2 -->
+      <div class="producto" data-id="2" data-nombre="Sala 2-1 Cafe" data-img="img-productos/JugueteSemiParque2.png">
+        <img src="img-productos/JugueteSemiParque2.png" alt="Sala 2-1 Cafe" onclick="mostrarDetalle('producto2')"/>
+        <h3>Semi Parque con Arco</h3>
+        <p class="precio">$115.00</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 2-->
+      <div id="producto2" class="info-producto" style="display: none;">
+        <h2>Semi Parque con Arco</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/JugueteSemiParque2.png" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Juguete de exterior con arco y un pequeño puente, hecho de madera maciza, mejora en habilidad motrices</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 150cm, profundidad 70cm, altura 70cm</h5>
+      <p>Recomendaciones: </p>
+      <h5>para niños de entre 5-8 años</h5>
+      <button>$115.00</button>
+    </div>
+  </div>
+  </div>
+
+      <!-- Producto 3 -->
+      <div class="producto" data-id="3" data-nombre="Sala 3-2-1 Cafe Claro" data-img="img-productos/sillon_cafeclaro.jpg">
+        <img src="img-productos/JugueteSemiParque3.png" alt="Bolsos de cuero" onclick="mostrarDetalle('producto3')"/>
+        <h3>Semi Parque Escalera Prescolar</h3>
+        <p class="precio">$105.99</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 3-->
+      <div id="producto3" class="info-producto" style="display: none;">
+        <h2>Semi Parque Escalera Prescolar</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/JugueteSemiParque3.png" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Juguete de exterior, escalera colorida y espacio para escalar, mejora en habilidades motrices</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 150cm, altura 120cm</h5>
+      <p>Recomendaciones:</p>
+      <h5>Para niños de entre 5-10 años</h5>
+      <button>$105.99</button>
+    </div>
+  </div>
+  </div>
+
+      <!-- Producto 4 -->
+      <div class="producto producto-4" data-id="4" data-nombre="Sillon 2-1 Gris" data-img="img-productos/sillon_gris.png">
+        <img src="img-productos/PizarraMadera.png" alt="Sillon 2-1 Gris" onclick="mostrarDetalle('producto4')"/>
+        <h3>Pizarrón De Madera</h3>
+        <p class="precio">$125.99</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 4-->
+      <div id="producto4" class="info-producto" style="display: none;">
+        <h2>Pizarrón De Madera</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/PizarraMadera.png" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Pizarrón hecho de madera, se utiliza tiza, mágnetizado</h5>
+      <p>Sillón doble:</p>
+      <h5>Altura: 130cm, Ancho: 50cm, Pizarrón: 55x60cm</h5>
+      <p>Recomendaciones:</p>
+      <h5>Perfecto para el aprendizaje</h5>
+      <button>$125.00</button>
+    </div>
+  </div>
+  </div>
+    
+
+    <!-- Producto 5 -->
+      <div class="producto producto-5" data-id="5" data-nombre="Cristalera Madera 3 puertas" data-img="img-productos/chinero1.jpg">
+        <img src="img-productos/chinero1.jpg" alt="Cristalera Madera 3 puertas" onclick="mostrarDetalle('producto5')"/>
+        <h3>Cristalera Madera 3 puertas</h3>
+        <p class="precio">$99.99</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 5-->
+      <div id="producto5" class="info-producto" style="display: none;">
+        <h2>Cristalera Madera 3 puertas</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/chinero1.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Chinero de madera barnizada, 9 gabinetes en total, ventanas de vidrio</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho: 140cm, Altura: 180cm, Profundidad:40cm </h5>
+      <button>$99.99</button>
+    </div>
+  </div>
+  </div>
+
+    <!-- Producto 6 -->
+      <div class="producto producto-6" data-id="6" data-nombre="Cristalera Cafe claro" data-img="img-productos/chinero2.webp">
+        <img src="img-productos/chinero2.webp" alt="Cristalera Cafe claro" onclick="mostrarDetalle('producto6')"/>
+        <h3>Cristalera Cafe claro</h3>
+        <p class="precio">$105.99</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 6-->
+      <div id="producto6" class="info-producto" style="display: none;">
+        <h2>Cristalera Cafe claro</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/chinero2.webp" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Chinero de madera maciza barnizado, 5 gabinetes en total, ventanas de vidrio</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 110cm, profundidad 40cm, altura 180cm</h5>
+      <button>$105.00</button>
+    </div>
+  </div>
+  </div>
+
+    <!-- Producto 7 -->
+      <div class="producto producto-7" data-id="7" data-nombre="Cristalera Amplia" data-img="img-productos/chinero3.jpg">
+        <img src="img-productos/chinero3.jpg" alt="Cristalera Amplia" onclick="mostrarDetalle('producto7')"/>
+        <h3>Cristalera Amplia</h3>
+        <p class="precio">$125.99</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 7-->
+      <div id="producto7" class="info-producto" style="display: none;">
+        <h2>Cristalera Amplia</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/chinero3.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Chinero hecho de madera maciza semi barnizado, 14 gabinetes en total, ventanas de vidrio</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 150cm, profundidad 40cm, altura 190cm</h5>
+      <button>$125.00</button>
+    </div>
+  </div>
+  </div>
+
+    <!-- Producto 8 -->
+      <div class="producto producto-8" data-id="8" data-nombre="Rack Tv 70'" data-img="img-productos/moduloTv1.jpg">
+        <img src="img-productos/moduloTv1.jpg" alt="Rack Tv 70'" onclick="mostrarDetalle('producto8')"/>
+        <h3>Rack Tv 70'</h3>
+        <p class="precio">$80.00</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 8-->
+      <div id="producto8" class="info-producto" style="display: none;">
+        <h2>Rack Tv 70'</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/moduloTv1.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Rank para Tv de 70' hecho de madera y barnizado, 4 gabinetes 2 estantes</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 170cm, profundidad 40cm, altura 50cm</h5>
+      <button>$80.00</button>
+    </div>
+  </div>
+  </div>
+
+    <!-- Producto 9 -->
+      <div class="producto producto-9" data-id="9" data-nombre="Rack Tv 75'" data-img="img-productos/moduloTv1.jpg">
+        <img src="img-productos/moduloTv1.jpg" alt="Rack Tv 75'" onclick="mostrarDetalle('producto9')"/>
+        <h3>Rack Tv 75'</h3>
+        <p class="precio">$85.99</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 9-->
+      <div id="producto9" class="info-producto" style="display: none;">
+        <h2>Rack Tv 75'</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/moduloTv1.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Rank para Tv de 75' hecho de madera y barnizado, 4 gabinetes 2 estantes</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 170cm, profundidad 40cm, altura 50cm</h5>
+      <button>$85.99</button>
+    </div>
+  </div>
+  </div>
+
+    <!-- Producto 10 -->
+      <div class="producto producto-10" data-id="10" data-nombre="Rack Tv 75'" data-img="img-productos/moduloTv2claro.jpg">
+        <img src="img-productos/moduloTv2claro.jpg" alt="Rack Tv 75'" onclick="mostrarDetalle('producto10')"/>
+        <h3>Rack Tv 75'</h3>
+        <p class="precio">$125.99</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 10-->
+      <div id="producto10" class="info-producto" style="display: none;">
+        <h2>Rack Tv 75'</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/moduloTv2claro.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Rank para Tv de 75' hecho de madera y barnizado, 4 gabinetes 2 estantes</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 170cm, profundidad 40cm, altura 50cm</h5>
+      <button>$125.00</button>
+    </div>
+  </div>
+  </div>
+
+    <!-- Producto 11 -->
+      <div class="producto producto-11" data-id="11" data-nombre="Sala 3 - 2 Beige" data-img="img-productos/sillon_cafeclaro.jpg">
+        <img src="img-productos/sillon_cafeclaro.jpg" alt="Sala 3 - 2 Beige" onclick="mostrarDetalle('producto11')"/>
+        <h3>Sala 3 - 2 Beige</h3>
+        <p class="precio">$125.99</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 11-->
+      <div id="producto11" class="info-producto" style="display: none;">
+        <h2>Sala 3 - 2 Beige</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/sillon_cafeclaro.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Sillón triple:</p>
+      <h5>Ancho 220cm, profundidad 80cm, altura 90cm</h5>
+      <p>Sillón doble:</p>
+      <h5>Ancho 150cm, profundidad 80cm, altura 90cm</h5>
+      <button>$125.00</button>
+    </div>
+  </div>
+  </div>
+
+       <!-- Producto 12 -->
+      <div class="producto" data-id="12" data-nombre="Sala 3-2-1" data-img="img-productos/sillon_azul.jpg" >
+        <img src="img-productos/sillon_azul.jpg" alt="Sillon azul"onclick="mostrarDetalle('producto12')" />
+        <h3>Sala 3-2-1 Azul</h3>
+        <p class="precio">$125.00</p>
+        <p>@CarpinteriaDonJosé</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 12-->
+      <div id="producto12" class="info-producto" style="display: none;">
+        <span></span>
+        <h2>Sillón Azul 3-2-1</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/sillon_azul.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Sillón triple:</p>
+      <h5>Ancho 220cm, profundidad 80cm, altura 90cm</h5>
+      <p>Sillón doble:</p>
+      <h5>Ancho 150cm, profundidad 80cm, altura 90cm</h5>
+      <p>Sillón individual:</p>
+      <h5>Ancho 80cm, profundidad 80cm, altura 90cm</h5>
+      <button>$125.00</button>
+    </div>
+  </div>
+  </div>
+</div>
+    </div>
+  </section>
+<div id="modal" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <div id="modal-info"></div>
+  </div>
+</div>
+<!--PRODUCTOS DEL SELLER-->
+
+    <!-- Footer -->
+  <footer style="background-color: #1e1e1e; color: white; padding: 50px 20px 30px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1200px; margin: auto;">
+      <div style="flex: 1 1 220px; margin-bottom: 20px;">
+        <h4 style="color: #f57c00;">MercaNova</h4>
+        <p>Conectamos emprendedores con compradores de todo el país.</p>
+      </div>
+      <div style="flex: 1 1 180px; margin-bottom: 20px;">
+        <h5 style="color: #f57c00;">Enlaces</h5>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="productos.html" style="color: #ccc;">Productos</a></li>
+          <li><a href="productos-destacados.html" style="color: #ccc;">Destacados</a></li>
+          <li><a href="nosotros.html" style="color: #ccc;">Nosotros</a></li>
+          <li><a href="perfil.html" style="color: #ccc;">Perfil</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 200px; margin-bottom: 20px;">
+        <h5 style="color: #f57c00;">Contacto</h5>
+        <p><strong>Email:</strong> contacto@mercanova.com</p>
+        <p><strong>Tel:</strong> +503 1234 5678</p>
+        <p><strong>Ubicación:</strong> San Salvador, El Salvador</p>
+      </div>
+      <div style="flex: 1 1 250px;">
+        <h5 style="color: #f57c00;">Suscríbete</h5>
+        <p>Recibe nuestras mejores ofertas en tu correo.</p>
+        <form onsubmit="alert('Gracias por suscribirte'); return false;">
+          <input type="email" placeholder="Tu correo electrónico" required style="padding: 10px; width: 100%; margin-bottom: 10px;" />
+          <button type="submit" style="background-color: #f57c00; color: white; padding: 10px 20px;">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+    <div style="text-align: center; padding-top: 20px; border-top: 1px solid #555; margin-top: 30px;">
+      <p>&copy; 2025 MercaNova. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+<!--ESTILO DE LA PÁGINAA-->
+<script>function mostrarDetalle(idProducto) {
+  const info = document.getElementById(idProducto).innerHTML;
+  document.getElementById("modal-info").innerHTML = info;
+  document.getElementById("modal").style.display = "block";
+}
+
+function cerrarModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+<style> 
+/* Fondo general del modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to right, rgba(34,54,93,0.9), rgba(245,124,0,0.8));
+  backdrop-filter: blur(6px);
+}
+
+/* Contenedor del contenido */
+.modal-contenido {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+  position: relative;
+  animation: fadeIn 0.4s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón de cierre */
+.cerrar {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.cerrar:hover {
+  color: #f57c00;
+}
+
+/* Título principal */
+.modal h2 {
+  color: #22365d;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Subtítulo */
+.modal h4 {
+  color: #f57c00;
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Texto descriptivo */
+.modal p {
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Botón de acción */
+.modal button {
+  background: linear-gradient(to right, #f57c00, #ff9800);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 30px auto 0;
+}
+.modal button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(245,124,0,0.4);
+}
+#regresar{
+  background: linear-gradient(to right, #f57c00, #ff9800);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+position: absolute;
+}
+/* Contenido del producto */
+.contenido-producto {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Imagen del producto */
+.contenido-producto img {
+  width: 100%;
+  max-width: 320px;
+  object-fit: cover;
+}
+
+/* Texto del producto */
+.texto-producto {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+.texto-producto h4 {
+  margin-top: 0;
+  color: #22365d;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.texto-producto h5 {
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+    * {
+    margin: 0;              
+    padding: 0;             
+    box-sizing: border-box; 
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: white;      
+    color: #333;                      
+  }
+/* AQUI EMPIEZA EL ESTILO DEL PRIMER NAV*/
+.primerCuadro{
+    height: 200px;
+    background-color: #22365d;
+}
+.primerCuadro img{
+  margin-top: 20px;
+    margin-left: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+ul{
+    width: 100%;
+    margin-left: 10px;
+}
+ul li{
+    margin-top: 10px;
+    color:white;
+    display: block;
+}
+#usuario{
+    font-size: 25px;
+}
+#descripcion{
+    font-size: 15px;
+    color: rgb(255, 255, 255, 0.5);
+}
+#direccion{
+    font-size: 13px;
+    color: rgb(255, 255, 255, 0.5);
+}
+#entregaPersonal{
+    padding-left: 2px;
+    padding-top: 2px;
+    background-color: #f57c00;
+    color: #fff;
+    width: 130px;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+#entregaPlataforma{
+    padding-left: 3px;
+    padding-top: 2px;
+    background-color: #f57c00;
+    color: #fff;
+    width: 200px;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+#contacto{
+    display:grid;
+    justify-content:right;
+    margin-right: 20px;
+    font-size: 15px;
+    color: rgb(255, 255, 225, 0.5);
+}
+#redesSociales{
+    display:grid;
+    justify-content:right;
+    margin-right: 20px;
+    font-size: 15px;
+    color: rgb(255, 255, 225, 0.5);
+}
+/*AQUI TERMINA EL ESTILO DEL PRIMER NAV*/
+/* AQUI EMPIEZA ESTILO DE LOS PRODUCTOS DEL SELLER*/
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+.sofa-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.2s ease;
+}
+.sofa-card:hover {
+  transform: scale(1.03);
+}
+.sofa-card img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.price {
+  font-weight: bold;
+  color: #2e8b57;
+  margin: 10px 0;
+}
+.desc {
+  font-size: 0.9em;
+  color: #555;
+}
+.icons {
+  margin-top: 10px;
+}
+.icons button {
+  font-size: 1.2em;
+  margin: 0 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/*AQUI TERMINA ESTILO DE LOS PRODUCTOS DEL SELLER*/
+</style>
+</html>

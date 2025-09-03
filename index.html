@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina Principal</title>
+
+  <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- FontAwesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/pincipal.css" />
+
+  <style>
+    /* Transiciones generales */
+    .card, .producto, .producto-4 {
+      transition: all 0.3s ease;
+    }
+
+    /* Menú desplegable */
+    #menuDesplegable {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 40px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    #menuDesplegable a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    #menuDesplegable a:hover {
+      background-color: #f57c00;
+      color: white;
+    }
+
+    /* Carrusel */
+    .carousel-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      position: relative;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    .carousel {
+      
+      display: flex;
+      overflow: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .card {
+      flex: 0 0 25%;
+      box-sizing: border-box;
+      padding: 10px;
+      transition: transform 0.3s ease;
+      margin: 10px;
+    }
+
+    .card-content {
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: none;
+      height: 100%;
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #f9f9f9;
+    }
+
+    .card h4 {
+      margin: 10px 0 5px;
+      font-size: 1rem;
+    }
+
+    .card p {
+      color: #555;
+      font-weight: bold;
+    }
+
+    /* Botones de navegación carrusel */
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #f57c00;
+      color: white;
+      border: none;
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .nav-button:hover {
+      background: #f07b06;
+    }
+
+    .nav-left {
+      left: -20px;
+    }
+
+    .nav-right {
+      right: -20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .card {
+        flex: 0 0 50%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        flex: 0 0 100%;
+      }
+    }
+    
+        .carousel-inner {
+      height: 375px; /* Altura fija (puedes cambiarla según tu diseño) */
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Para que siempre se adapten sin deformarse */
+      border-radius: 12px; /* Bordes redondeados (opcional) */
+    }
+
+    /* Botones personalizados */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    /* Indicadores */
+    .carousel-indicators [data-bs-target] {
+      background-color: #333;
+    }
+
+     .modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to right, rgba(34,54,93,0.9), rgba(245,124,0,0.8));
+  backdrop-filter: blur(6px);
+}
+
+/* Contenedor del contenido */
+.modal-contenido {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+  position: relative;
+  animation: fadeIn 0.4s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón de cierre */
+.cerrar {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.cerrar:hover {
+  color: #f57c00;
+}
+
+/* Título principal */
+.modal h2 {
+  color: #22365d;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Subtítulo */
+.modal h4 {
+  color: #f57c00;
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Texto descriptivo */
+.modal p {
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Botón de acción */
+.modal button {
+  background: linear-gradient(to right, #f57c00, #ff9800);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 30px auto 0;
+  margin-left: 325px;
+}
+.modal button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(245,124,0,0.4);
+}
+#regresar{
+  background: linear-gradient(to right, #f57c00, #ff9800);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+position: absolute;
+}
+/* Contenido del producto */
+.contenido-producto {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Imagen del producto */
+.contenido-producto img {
+  width: 100%;
+  max-width: 320px;
+  object-fit: cover;
+}
+
+/* Texto del producto */
+.texto-producto {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+}
+
+.texto-producto h4 {
+  margin-top: 0;
+  color: #22365d;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.texto-producto h5 {
+  font-weight: normal;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.producto img{
+  width: 100%;
+  max-width: 320px;
+  object-fit: contain;
+}
+  </style>
+</head>
+<body>
+  <!-- Navegación superior -->
+  <nav>
+    <img src="img-principal/logo.png" alt="Logo MercaNova" class="logo" />
+    <div class="menu">
+      <a href="index.html"><img src="img-principal/hogar.png" alt="Inicio" /></a>
+      <a href="productos.html"><img src="img-principal/caja-abierta.png" alt="Productos" /></a>
+      <a href="favoritos.html"><img src="img-principal/corazon.png" alt="Favoritos" /></a>
+      <a href="comprar.html" id="contador-compras" style="position: relative;">
+        <img src="img-principal/carrito-de-compras.png" alt="Carrito" />
+        <span class="contador-numero">0</span>
+      </a>
+
+      <button id="hamburguesaBtn" style="background:none; border:none;">
+        <img src="img-principal/menu-hamburguesa.png" alt="Menú" style="width:18px; margin-left: 28px;" />
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menú desplegable -->
+  <div id="menuDesplegable">
+    <a href="" id="abrir-modal">Mi perfil</a>
+    <a href="ayuda-y-ajustes.html">Configuración</a>
+    <a href="nosotros.html">Sobre Nosotros</a>
+    <a href="comprador.html">Comprador</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Bienvenido a MercaNova</h1>
+    <p>Conectamos emprendedores con compradores de todo el país</p>
+    <div class="search-box">
+      <input type="text" id="buscar" placeholder="Buscar productos, marcas o emprendedores..." />
+      <button onclick="realizarBusqueda()">Buscar</button>
+    </div>
+  </section>
+
+  <!-- Carrusel de Productos Destacados -->
+  <div class="carousel-container">
+    <h2><span style="color:#f57c00">Productos Destacados</span></h2>
+
+    <button class="nav-button nav-left" onclick="scrollCarousel(-1)">❮</button>
+    <div class="carousel" id="carousel">
+      <!-- Cards del carrusel -->
+      <div class="card">
+        <div class="card-content">
+          <img src="img-productos/chinero1.jpg" alt="Product 1" />
+          <h4>Chinero de Madera Elegante</h4>
+          <p>$30.00</p>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-content">
+          <img src="img-productos/sillon_azul.jpg" alt="Product 3" />
+          <h4>Sillón Azul Moderno</h4>
+          <p>$34.00</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <img src="img-productos/sillon_gris.png" alt="Product 4" />
+          <h4>Sillón Gris Contemporáneo</h4>
+          <p>$28.00</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <img src="img-productos/sillon_cafeclaro.jpg" alt="Product 5" />
+          <h4>Sillón Café Claro</h4>
+          <p>$29.00</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <img src="img-productos/VESTIDOINDIA.jpeg" alt="Vestido India" />
+          <h4>Vestido Estilo India</h4>
+          <p>$25.00</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <img src="img-productos/VESTIDONIÑATALLAPETIT.jpeg" alt="Vestido Niña" />
+          <h4>Vestido de Niña Petit</h4>
+          <p>$25.00</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <img src="img-principal/silla_azulPera.jpg" alt="Silla Azul Pera" />
+          <h4>Silla Azul Pera</h4>
+          <p>$29.00</p>
+        </div>
+      </div>
+    </div>
+    <button class="nav-button nav-right" onclick="scrollCarousel(1)">❯</button>
+  </div>
+  <br />
+
+    <!-- Sección Productos Destacados -->
+  <section class="productos-section">
+    <div class="productos">
+      
+ <!-- Producto 1 -->
+      <div class="producto" data-id="1" data-nombre="Sala 3-2-1" data-img="img-productos/JugueteSemiParque.png">
+        <img src="img-productos/JugueteSemiParque.png" alt="Sillon azul" onclick="mostrarDetalle('producto1')"/>
+        <h3>Semi Parque Para Escalar</h3>
+        <p class="precio">$108.00</p>
+        <a href="perfildeEmprendimiento.html"><p>@CarpinteriaDonJose</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 1-->
+      <div id="producto1" class="info-producto" style="display: none;">
+        <h2>Semi Parque Kinder</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/JugueteSemiParque.png" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descrpción</p>
+      <h5>Juguete de exterior para escalar hecho de madera maciza hecho para niños de entre 3-5 años</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 150cm, profundidad 70cm, altura 70cm</h5>
+      <p> Recomendaciones:</p>
+      <h5>Mayores de 3 años</h5>
+      <button>$108.00</button>
+    </div>
+  </div>
+  </div>
+
+      <!-- Producto 2 -->
+      <div class="producto" data-id="2" data-nombre="Sala 2-1 Cafe" data-img="img-productos/JugueteSemiParque2.png">
+        <img src="img-productos/JugueteSemiParque2.png" alt="Sala 2-1 Cafe" onclick="mostrarDetalle('producto2')"/>
+        <h3>Semi Parque con Arco</h3>
+        <p class="precio">$115.00</p>
+        <a href="perfildeEmprendimiento.html"><p>@CarpinteriaDonJose</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 2-->
+      <div id="producto2" class="info-producto" style="display: none;">
+        <h2>Semi Parque con Arco</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/JugueteSemiParque2.png" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Juguete de exterior con arco y un pequeño puente, hecho de madera maciza, mejora en habilidad motrices</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 150cm, profundidad 70cm, altura 70cm</h5>
+      <p>Recomendaciones: </p>
+      <h5>para niños de entre 5-8 años</h5>
+      <button>$115.00</button>
+    </div>
+  </div>
+  </div>
+
+      <!-- Producto 3 -->
+      <div class="producto" data-id="3" data-nombre="Sala 3-2-1 Cafe Claro" data-img="img-productos/sillon_cafeclaro.jpg">
+        <img src="img-productos/JugueteSemiParque3.png" alt="Bolsos de cuero" onclick="mostrarDetalle('producto3')"/>
+        <h3>Semi Parque Escalera Prescolar</h3>
+        <p class="precio">$105.99</p>
+        <a href="perfildeEmprendimiento.html"><p>@CarpinteriaDonJose</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 3-->
+      <div id="producto3" class="info-producto" style="display: none;">
+        <h2>Semi Parque Escalera Prescolar</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/JugueteSemiParque3.png" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Juguete de exterior, escalera colorida y espacio para escalar, mejora en habilidades motrices</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 150cm, altura 120cm</h5>
+      <p>Recomendaciones:</p>
+      <h5>Para niños de entre 5-10 años</h5>
+      <button>$105.99</button>
+    </div>
+  </div>
+  </div>
+
+      <!-- Producto 4 -->
+      <div class="producto producto-4" data-id="4" data-nombre="Sillon 2-1 Gris" data-img="img-productos/sillon_gris.png">
+        <img src="img-productos/PizarraMadera.png" alt="Sillon 2-1 Gris" onclick="mostrarDetalle('producto4')"/>
+        <h3>Pizarrón De Madera</h3>
+        <p class="precio">$125.99</p>
+        <a href="perfildeEmprendimiento.html"><p>@CarpinteriaDonJose</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 4-->
+      <div id="producto4" class="info-producto" style="display: none;">
+        <h2>Pizarrón De Madera</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/PizarraMadera.png" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Pizarrón hecho de madera, se utiliza tiza, mágnetizado</h5>
+      <p>Sillón doble:</p>
+      <h5>Altura: 130cm, Ancho: 50cm, Pizarrón: 55x60cm</h5>
+      <p>Recomendaciones:</p>
+      <h5>Perfecto para el aprendizaje</h5>
+      <button>$125.00</button>
+    </div>
+  </div>
+  </div>
+   
+
+    <!-- Producto 5 -->
+      <div class="producto producto-5" data-id="5" data-nombre="Cristalera Madera 3 puertas" data-img="img-productos/chinero1.jpg">
+        <img src="img-productos/chinero1.jpg" alt="Cristalera Madera 3 puertas" onclick="mostrarDetalle('producto5')"/>
+        <h3>Cristalera Madera 3 puertas</h3>
+        <p class="precio">$99.99</p>
+        <a href="perfildeEmprendimiento.html"><p>@CarpinteriaDonJose</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 5-->
+      <div id="producto5" class="info-producto" style="display: none;">
+        <h2>Cristalera Madera 3 puertas</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/chinero1.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Chinero de madera barnizada, 9 gabinetes en total, ventanas de vidrio</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho: 140cm, Altura: 180cm, Profundidad:40cm </h5>
+      <button>$99.99</button>
+    </div>
+  </div>
+  </div>
+
+    <!-- Producto 6 -->
+      <div class="producto producto-6" data-id="6" data-nombre="Cristalera Cafe claro" data-img="img-productos/chinero2.webp">
+        <img src="img-productos/chinero2.webp" alt="Cristalera Cafe claro" onclick="mostrarDetalle('producto6')"/>
+        <h3>Cristalera Cafe claro</h3>
+        <p class="precio">$105.99</p>
+        <a href="perfildeEmprendimiento.html"><p>@CarpinteriaDonJose</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 6-->
+      <div id="producto6" class="info-producto" style="display: none;">
+        <h2>Cristalera Cafe claro</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/chinero2.webp" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Chinero de madera maciza barnizado, 5 gabinetes en total, ventanas de vidrio</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 110cm, profundidad 40cm, altura 180cm</h5>
+      <button>$105.00</button>
+    </div>
+  </div>
+  </div>
+
+    <!-- Producto 7 -->
+      <div class="producto producto-7" data-id="7" data-nombre="Cristalera Amplia" data-img="img-productos/chinero3.jpg">
+        <img src="img-productos/chinero3.jpg" alt="Cristalera Amplia" onclick="mostrarDetalle('producto7')"/>
+        <h3>Cristalera Amplia</h3>
+        <p class="precio">$125.99</p>
+        <a href="perfildeEmprendimiento.html"><p>@CarpinteriaDonJose</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 7-->
+      <div id="producto7" class="info-producto" style="display: none;">
+        <h2>Cristalera Amplia</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/chinero3.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Chinero hecho de madera maciza semi barnizado, 14 gabinetes en total, ventanas de vidrio</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 150cm, profundidad 40cm, altura 190cm</h5>
+      <button>$125.00</button>
+    </div>
+  </div>
+  </div>
+
+    <!-- Producto 8 -->
+      <div class="producto producto-8" data-id="8" data-nombre="Rack Tv 70'" data-img="img-productos/moduloTv1.jpg">
+        <img src="img-productos/moduloTv1.jpg" alt="Rack Tv 70'" onclick="mostrarDetalle('producto8')"/>
+        <h3>Rack Tv 70'</h3>
+        <p class="precio">$80.00</p>
+        <a href="perfildeEmprendimiento.html"><p>@CarpinteriaDonJose</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 8-->
+      <div id="producto8" class="info-producto" style="display: none;">
+        <h2>Rack Tv 70'</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/moduloTv1.jpg" alt="Sillón Azul">
+    <div class="texto-producto">
+      <h4>@CarpinteriaDonJose</h4>
+      <p>Descripción:</p>
+      <h5>Rank para Tv de 70' hecho de madera y barnizado, 4 gabinetes 2 estantes</h5>
+      <p>Dimensiones:</p>
+      <h5>Ancho 170cm, profundidad 40cm, altura 50cm</h5>
+      <button>$80.00</button>
+    </div>
+  </div>
+  </div>
+    </div>
+  </section>
+
+
+
+<div id="zimCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+  <!-- Indicadores -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#zimCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#zimCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#zimCarousel" data-bs-slide-to="2"></button>
+    <button type="button" data-bs-target="#zimCarousel" data-bs-slide-to="3"></button>
+    <button type="button" data-bs-target="#zimCarousel" data-bs-slide-to="4"></button>
+    <button type="button" data-bs-target="#zimCarousel" data-bs-slide-to="5"></button>
+    <button type="button" data-bs-target="#zimCarousel" data-bs-slide-to="6"></button>
+    <button type="button" data-bs-target="#zimCarousel" data-bs-slide-to="7"></button>
+  </div>
+
+  <!-- Slides -->
+  <div class="carousel-inner rounded-3 shadow-lg" id="Carrusel-ancho">
+    <div class="carousel-item active">
+      <img src="img-principal/5.png" class="d-block w-100" alt="Anuncio 2">
+    </div>
+    <div class="carousel-item">
+      <img src="img-principal/3.png" class="d-block w-100" alt="Anuncio 3">
+    </div>
+        <div class="carousel-item">
+      <img src="img-principal/1.png" class="d-block w-100" alt="Anuncio 4">
+    </div>
+        <div class="carousel-item">
+      <img src="img-principal/4.png" class="d-block w-100" alt="Anuncio 5">
+    </div>
+    <div class="carousel-item">
+      <img src="img-principal/6.png" class="d-block w-100" alt="Anuncio 5">
+    </div>
+  </div>
+
+  <!-- Controles -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#zimCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#zimCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+  <br />
+
+    <!-- Sección Productos Destacados -->
+  <section class="productos-section">
+    <div class="productos">
+      
+ <!-- Producto 10 -->
+      <div class="producto" data-id="1" data-nombre="Camisa Artesanal Blanca" data-img="img-productos/CamisaArtesanalHombre1.png">
+        <img src="img-productos/CamisaArtesanalHombre1.png" alt="Camisa Artesanal Blanca" onclick="mostrarDetalle('producto10')"/>
+        <h3>Camisa Artesanal Blanca</h3>
+        <p class="precio">$25.00</p>
+        <p>@BoutiqueNiñaSofia</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 10-->
+      <div id="producto10" class="info-producto" style="display: none;">
+        <h2>Camisa Artesanal Blanca</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/CamisaArtesanalHombre1.png" alt="Camisa Artesanal Blanca">
+    <div class="texto-producto">
+     <p>@BoutiqueNiñaSofia</p>
+      <p>Descrpción</p>
+      <h5>Clásico no pasa de moda.</h5>
+    <p>Detalles:</p>
+<h5>Corte clásico, confección artesanal en lino premium</h5>
+<p>Tallas disponibles:</p>
+<h5>S, M, L, XL</h5>
+<p>Recomendado para:</p>
+<h5>Hombres con gusto por lo atemporal y auténtico</h5>
+
+<button>$25.00</button>
+
+    </div>
+  </div>
+  </div>
+
+      <!-- Producto 11 -->
+      <div class="producto" data-id="2" data-nombre="Camisa color café con detalles artesanales" data-img="img-productos/CamisaArtesanalHombre2.png">
+        <img src="img-productos/CamisaArtesanalHombre2.png" alt="Camisa color café con detalles artesanales" onclick="mostrarDetalle('producto11')"/>
+        <h3>Camisa color café con detalles artesanales</h3>
+        <p class="precio">$25.00</p>
+    <p>@BoutiqueNiñaSofia</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 11-->
+      <div id="producto11" class="info-producto" style="display: none;">
+        <h2>Camisa color café con detalles artesanales</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/CamisaArtesanalHombre2.png" alt="Sillón Azul">
+    <div class="texto-producto">
+      <p>@BoutiqueNiñaSofia</p>
+      <p>Descripción:</p>
+<h5>Camisa en tono café elaborada artesanalmente, con detalles únicos que reflejan un estilo auténtico y atemporal.</h5>
+<p>Detalles:</p>
+<h5>Confeccionada en tela de alta calidad, textura suave y acabado rústico que resalta su carácter hecho a mano.</h5>
+<p>Recomendaciones:</p>
+<h5>Ideal para quienes valoran el diseño tradicional con un toque contemporáneo.</h5>
+<button>$115.00</button>
+ </div>
+  </div>
+  </div>
+
+      <!-- Producto 12 -->
+<div class="producto" data-id="3" data-nombre="Camiseta Blanca El Salvador" data-img="img-productos/CamisaSublimada1.png">
+  <img src="img-productos/CamisaSublimada1.png" alt="Camiseta Blanca El Salvador" onclick="mostrarDetalle('producto12')"/>
+  <h3>Camiseta Blanca El Salvador</h3>
+  <p class="precio">$20.00</p>
+  <p>@BoutiqueNiñaSofia</p>
+  <div class="acciones">
+    <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+    <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+    <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+  </div>
+</div>
+
+<!-- Información oculta del producto 12-->
+<div id="producto12" class="info-producto" style="display: none;">
+  <h2>Camiseta Blanca El Salvador</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/CamisaSublimada1.png" alt="Camiseta Blanca El Salvador">
+    <div class="texto-producto">
+      <a href="perfildeEmprendimiento.html"><p>@BoutiqueNiñaSofia</p></a>
+      <p>Descripción:</p>
+      <h5>Camiseta blanca con diseño "Enjoy El Salvador", inspirada en gráficos clásicos. Ideal como prenda casual o recuerdo cultural.</h5>
+      <p>Detalles:</p>
+      <h5>Material: 100% algodón. Corte unisex. Estampado duradero. Disponible en varias tallas.</h5>
+      <p>Recomendaciones:</p>
+      <h5>Perfecta para uso diario o como souvenir.</h5>
+      <button>$20.00</button>
+    </div>
+  </div>
+</div>
+
+     <!-- Producto 13-->
+<div class="producto producto-4" data-id="4" data-nombre="Camisa Artesanal Mujer" data-img="img-productos/CamisaArtesanalMujer2.png">
+  <img src="img-productos/CamisaArtesanalMujer.png" alt="Camisa Artesanal Mujer" onclick="mostrarDetalle('producto13')"/>
+  <h3>Camisa Artesanal Mujer</h3>
+  <p class="precio">$15.00</p>
+      <a href="perfildeEmprendimiento.html"><p>@BoutiqueNiñaSofia</p></a>
+  <div class="acciones">
+    <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+    <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+    <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+  </div>
+</div>
+
+<!-- Información oculta del producto 13-->
+<div id="producto13" class="info-producto" style="display: none;">
+  <h2>Camisa Artesanal Mujer</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/CamisaArtesanalMujer.png" alt="Camisa Artesanal Mujer">
+    <div class="texto-producto">
+      <h4>@BoutiqueNiñaSofia</h4>
+      <p>Descripción:</p>
+      <h5>Camisa artesanal femenina en color fucsia, confeccionada a mano con bordados tradicionales en el cuello. Ligera, cómoda y con estilo auténtico.</h5>
+      <p>Detalles:</p>
+      <h5>Material: Algodón. Disponible en varias tallas. Acabado rústico con detalles coloridos.</h5>
+      <p>Recomendaciones:</p>
+      <h5>Ideal para uso casual o eventos culturales.</h5>
+      <button>$15.00</button>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Producto 14 -->
+      <div class="producto producto-5" data-id="5" data-nombre="Sandalia Plataforma Negra" data-img="img-productos/chinero1.jpg">
+        <img src="img-productos/ZapatosTacon1.png" alt="Cristalera Madera 3 puertas" onclick="mostrarDetalle('producto14')"/>
+        <h3>Sandalia Plataforma Negra</h3>
+        <p class="precio">$35.00</p>
+       <p>@ZapateriaNiñaMayte</p>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 14-->
+<div id="producto14" class="info-producto" style="display: none;">
+  <h2>Sandalias Plataforma Negra</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/ZapatosTacon1.png" alt="Sandalias Plataforma Negra">
+    <div class="texto-producto">
+      <h4>@ZapateriaNiñaMayte</h4>
+      <p>Descripción:</p>
+      <h5>Sandalias negras con plataforma alta de yute. Cierre de cintas al tobillo. Diseño cómodo y elegante.</h5>
+      <p>Material:</p>
+      <h5>Yute y tela resistente. Suela antideslizante.</h5>
+      <button>$35.00</button>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Producto 15 -->
+      <div class="producto producto-6" data-id="6" data-nombre="Tacones Rojos" data-img="img-productos/ZapatoTacon11.png">
+        <img src="img-productos/ZapatoTacon11.png" alt="Tacones Rojos" onclick="mostrarDetalle('producto15')"/>
+        <h3>Tacones Rojos</h3>
+        <p class="precio">$55.00</p>
+        <p>@ZapateriaNiñaMayte</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 15-->
+<div id="producto15" class="info-producto" style="display: none;">
+  <h2>Tacones Rojos con Pulsera</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/ZapatoTacon11.png" alt="Tacones Rojos con Pulsera">
+    <div class="texto-producto">
+      <h4>@ZapateriaNiñaMayte</h4>
+      <p>Descripción:</p>
+      <h5>Tacones brillantes color rojo con pulsera ajustable. Elegantes, ideales para fiestas o eventos nocturnos.</h5>
+      <p>Altura del tacón:</p>
+      <h5>7cm</h5>
+      <button>$55.00</button>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Producto 16 -->
+      <div class="producto producto-7" data-id="7" data-nombre="Sandalia con detalle dorado" data-img="img-productos/ZapatoSnadalia3.png">
+        <img src="img-productos/ZapatoSnadalia3.png" alt="Sandalia con detalle dorado" onclick="mostrarDetalle('producto16')"/>
+        <h3>Sandalia con detalle dorado</h3>
+        <p class="precio">$35.00</p>
+      <a href="perfildeEmprendimiento.html"><p>@BoutiqueNiñaSofia</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+    <!-- Información oculta del producto 16-->
+<div id="producto16" class="info-producto" style="display: none;">
+  <h2>Sandalias con Detalles dorados</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/ZapatoSnadalia3.png" alt="Sandalias con Detalles dorados">
+    <div class="texto-producto">
+      <h4>@ZapateriaNiñaMayte</h4>
+      <p>Descripción:</p>
+      <h5>Sandalias color nude con apliques metálicos decorativos. Diseño sofisticado para ocasiones elegantes.</h5>
+      <p>Material:</p>
+      <h5>Cuero sintético, detalles metálicos, plantilla acolchada.</h5>
+      <button>$35.00</button>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Producto 17 -->
+      <div class="producto producto-8" data-id="8" data-nombre="Sandalia blancas'" data-img="img-productos/ZapatoSandalia2.png">
+        <img src="img-productos/ZapatoSandalia2.png" alt="Sandalia blancas'" onclick="mostrarDetalle('producto17')"/>
+        <h3>Sandalia blancas</h3>
+        <p class="precio">$30.00</p>
+      <a href="perfildeEmprendimiento.html"><p>@BoutiqueNiñaSofia</p></a>
+        <div class="acciones">
+          <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+          <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+          <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+        </div>
+      </div>
+      <!-- Información oculta del producto 17-->
+      <div id="producto17" class="info-producto" style="display: none;">
+        <h2>Sandalia blancas</h2>
+  <div class="contenido-producto">
+    <img src="img-productos/ZapatoSandalia2.png" alt="Sandalias blancas">
+    <div class="texto-producto">
+      <h4>@ZapateriaNiñaMayte</h4>
+      <p>Descripción:</p>
+      <h5>Comodos y te hacen sentir seguro en cada paso</h5>
+      <p>Detalles:</p>
+      <h5>Unico diseño color blanco</h5>
+      <button>$30.00</button>
+    </div>
+  </div>
+  </div>
+    </div>
+  </section>
+
+
+    <!-- Sección Explora nuestras opciones -->
+ <section class="cards-section">
+  <h2 class="section-title">Explora nuestras opciones</h2>
+  <div class="scroll-cards">
+    <div class="card">
+      <img src="img-principal/producto1.png" alt="">
+    </div>
+    <div class="card">
+            <img src="img-principal/producto2.png" alt="">
+    </div>
+    <div class="card">
+            <img src="img-principal/producto3.png" alt="">
+    </div>
+    <div class="card">
+            <img src="img-principal/producto4.png" alt="">
+    </div>
+    <div class="card">
+            <img src="img-principal/producto5.png" alt="">
+    </div>
+    <div class="card">
+              <img src="img-principal/producto6.png" alt="">
+    </div>
+    
+</section>
+
+  <div id="modal" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <div id="modal-info"></div>
+  </div>
+</div>
+
+ <!-- Footer -->
+ <footer style="background-color: #1e1e1e; color: white; padding: 50px 20px 30px;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1200px; margin: auto;">
+    <div style="flex: 1 1 220px; margin-bottom: 20px;">
+      <h4 style="color: #f57c00;">MercaNova</h4>
+      <p>Conectamos emprendedores con compradores de todo el país.</p>
+    </div>
+    <div style="flex: 1 1 180px; margin-bottom: 20px;">
+      <h5 style="color: #f57c00;">Enlaces</h5>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="productos.html" style="color: #ccc;">Productos</a></li>
+        <li><a href="productos-destacados.html" style="color: #ccc;">Destacados</a></li>
+        <li><a href="nosotros.html" style="color: #ccc;">Nosotros</a></li>
+        <li><a href="perfil.html" style="color: #ccc;">Perfil</a></li>
+      </ul>
+    </div>
+    <div style="flex: 1 1 200px; margin-bottom: 20px;">
+      <h5 style="color: #f57c00;">Contacto</h5>
+      <p><strong>Email:</strong> contacto@mercanova.com</p>
+      <p><strong>Tel:</strong> +503 1234 5678</p>
+      <p><strong>Ubicación:</strong> San Salvador, El Salvador</p>
+    </div>
+    <div style="flex: 1 1 250px;">
+      <h5 style="color: #f57c00;">Suscríbete</h5>
+      <p>Recibe nuestras mejores ofertas en tu correo.</p>
+      <form onsubmit="alert('Gracias por suscribirte'); return false;">
+        <input type="email" placeholder="Tu correo electrónico" required style="padding: 10px; width: 100%; margin-bottom: 10px;" />
+        <button type="submit" style="background-color: #f57c00; color: white; padding: 10px 20px; border: none; border-radius: 10px;">Suscribirme</button>
+      </form>
+    </div>
+  </div>
+  <div style="text-align: center; padding-top: 20px; border-top: 1px solid #555; margin-top: 30px;">
+    <p>&copy; 2025 MercaNova. Todos los derechos reservados.</p>
+  </div>
+</footer>
+<!--Fin del footer-->
+
+<!--Aquí empieza el modal-->
+<div id="modal-fondo" class="modal-fondo oculto">
+  <div class="login-container">
+    <a href="Compradores.html"><button id="btn-comprador" type="button" class="social-btn">Continuar como comprador</button></a>
+    <a href="Vendedores.html"><button id="btn-vendedor" type="button" class="social-btn">Continuar como vendedor</button></a>
+
+    <div class="separator">
+      <span>o</span>
+    </div>
+
+    <p id="T-invitado">¿Quieres seguir como invitado?<a href="#" id="btn-invitado">Invitado</a></p>
+    <p id="T-invitado"><a href="terminos y condiciones.html" id="btn-invitado">Terminos y condiciones</p>
+  </div>
+</div>
+<!--Aquí termina el modal-->
+
+  <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/principal.js"></script>
+
+  <script>
+      // Mostrar modal pago al comprar (si tienes modal definido en otro archivo)
+      const botonesComprar = document.querySelectorAll('.comprar');
+      botonesComprar.forEach(boton => {
+        boton.addEventListener('click', () => {
+          $('#modalPago').modal('show');
+        });
+      });
+
+      // Toggle menú desplegable
+      const menuBtn = document.getElementById('hamburguesaBtn');
+      const menuDesplegable = document.getElementById('menuDesplegable');
+
+      menuBtn.addEventListener('click', () => {
+        menuDesplegable.style.display = menuDesplegable.style.display === 'none' || menuDesplegable.style.display === '' ? 'block' : 'none';
+      });
+
+      // Cerrar menú al dar clic fuera
+      document.addEventListener('click', function(event) {
+        if (!menuBtn.contains(event.target) && !menuDesplegable.contains(event.target)) {
+          menuDesplegable.style.display = 'none';
+        }
+      });
+
+      // Manejo favoritos por producto
+      const botonesFavorito = document.querySelectorAll(".favorito-btn");
+
+      botonesFavorito.forEach(boton => {
+        boton.addEventListener("click", () => {
+          const contenedor = boton.closest(".producto");
+          if (!contenedor) return; // seguridad
+
+          const producto = {
+  id: contenedor.dataset.id,
+  nombre: contenedor.dataset.nombre,
+  img: contenedor.dataset.img,
+  precio: contenedor.querySelector('.precio')?.textContent || "$0.00"
+};
+
+
+          let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+          const existe = favoritos.some(p => p.id === producto.id);
+
+          if (!existe) {
+            favoritos.push(producto);
+            localStorage.setItem("favoritos", JSON.stringify(favoritos));
+            boton.classList.add("favorito");
+          }
+        });
+      });
+
+    // Script para agregar al carrito 
+
+     document.addEventListener("DOMContentLoaded", function () {
+    const botonesComprar = document.querySelectorAll('.comprar');
+
+    botonesComprar.forEach(boton => {
+      boton.addEventListener('click', () => {
+        const contenedor = boton.closest(".producto");
+        if (!contenedor) return;
+
+        const producto = {
+          id: contenedor.dataset.id,
+          nombre: contenedor.dataset.nombre,
+          img: contenedor.dataset.img,
+          precio: contenedor.querySelector('.precio')?.textContent || "$0.00"
+        };
+
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const existe = carrito.some(p => p.id === producto.id);
+
+        if (!existe) {
+          carrito.push(producto);
+          localStorage.setItem("carrito", JSON.stringify(carrito));
+          boton.classList.add("en-carrito"); // opcional: agregar clase visual
+        }
+
+        // Actualiza contador del ícono carrito
+        document.querySelector(".contador-numero").textContent = carrito.length;
+      });
+    });
+
+    // Cargar cantidad en el ícono al cargar página
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    document.querySelector(".contador-numero").textContent = carrito.length;
+  });
+
+    // Scroll carrusel
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('carousel');
+      const cardWidth = carousel.querySelector('.card').offsetWidth;
+      carousel.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    }
+
+  // Mostrar el modal automáticamente después de 1 segundo (por ejemplo)
+  document.addEventListener("DOMContentLoaded", () => {
+    const linkAbrirModal = document.getElementById("abrir-modal");
+    const modal = document.getElementById("modal-fondo");
+    const linkInvitado = document.getElementById("btn-invitado");
+
+    // Abrir modal
+    linkAbrirModal.addEventListener("click", (e) => {
+      e.preventDefault(); // evita que el enlace haga scroll arriba
+      modal.classList.remove("oculto");
+      modal.classList.add("visible");
+    });
+
+    // Cerrar modal como invitado
+    linkInvitado.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.classList.remove("visible");
+      modal.classList.add("oculto");
+    });
+  });
+  /*MOSTRAR INFORMACIÓN DEL PRODUCTO*/
+    function mostrarDetalle(idProducto) {
+  const info = document.getElementById(idProducto).innerHTML;
+  document.getElementById("modal-info").innerHTML = info;
+  document.getElementById("modal").style.display = "block";
+}
+
+function cerrarModal() {
+  document.getElementById("modal").style.display = "none";
+}
+  </script>
+</body>
+</html>

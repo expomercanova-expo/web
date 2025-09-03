@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Perfil</title>
+  <link rel="stylesheet" href="css/Perfil-comprador.css">
+  <style>
+    /* Estilos para el nuevo diseño del perfil */
+    body {
+      background-color: #f4f7f6; /* Un fondo suave para la página */
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .perfil-container {
+      max-width: 900px; /* Aumentamos el ancho para las dos columnas */
+      margin: 40px auto;
+      padding: 20px;
+    }
+    
+    /* Nuevo contenedor para el layout de 2 columnas */
+    .perfil-layout {
+        display: flex;
+        gap: 30px; /* Espacio entre la columna izquierda y derecha */
+    }
+
+    /* Columna Izquierda: Tarjeta de Usuario */
+.perfil-usuario-card {
+    flex: 0 0 280px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    padding: 30px 20px;
+    text-align: center;
+    /* Nuevas líneas para centrar el contenido verticalmente */
+    display: flex;           /* <--- AÑADE ESTA LÍNEA */
+    flex-direction: column; /* <--- AÑADE ESTA LÍNEA */
+    justify-content: center;  /* <--- AÑADE ESTA LÍNEA */
+}
+
+    .perfil-usuario-card .profile-pic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid #f57c00;
+        margin: 0 auto 20px auto;
+        display: block;
+    }
+    
+    .perfil-usuario-card .user-info h2 {
+        margin: 0;
+        font-size: 22px;
+        color: #333;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .perfil-usuario-card .user-info p {
+        margin: 8px 0 0;
+        font-size: 15px;
+        color: #777;
+    }
+
+    /* Columna Derecha: Contenedor de las tarjetas de información */
+    .info-cards-container {
+      flex-grow: 1; /* Ocupa el espacio restante */
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* Espacio entre las tarjetas */
+    }
+
+    /* Estilo individual de cada tarjeta de información (sin cambios) */
+    .info-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+    }
+
+    .info-card .icon-text-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .info-card .icon {
+      width: 28px;
+      height: 28px;
+      margin-right: 20px;
+      filter: invert(55%) sepia(85%) saturate(1556%) hue-rotate(359deg) brightness(99%) contrast(93%); /* Color naranja */
+    }
+
+    .info-card .info-text h3 {
+      margin: 0;
+      font-size: 16px;
+      color: #555;
+      font-weight: 600;
+    }
+
+    .info-card .info-text p {
+      margin: 4px 0 0;
+      font-size: 15px;
+      color: #888;
+    }
+
+    .info-card .edit-btn {
+      background-color: #f57c00;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .info-card .edit-btn:hover {
+      background-color: #e67000;
+    }
+
+    /* Diseño responsivo para celulares */
+    @media (max-width: 768px) {
+        .perfil-layout {
+            flex-direction: column;
+        }
+        .perfil-usuario-card {
+            flex: 1; /* Ocupa todo el ancho */
+        }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+    <img src="img-principal/logo.png" alt="" class="logo">
+    <div class="menu">
+      <a href="index.html"><img src="img-principal/hogar.png" alt=""></a>
+      <a href="productos.html"><img src="img-principal/caja-abierta.png" alt=""></a>
+      <a href="#"><img src="img-principal/corazon.png" alt=""></a>
+      <a href="#"><img src="img-principal/carrito-de-compras.png" alt=""></a>
+      <button id="hamburguesaBtn" style="background:none;border:none;">
+        <img src="img-principal/menu-hamburguesa.png" alt="Menú" style="width:18px; margin-left: 28px;">
+      </button>
+    </div>
+  </nav>
+
+    <div id="menuDesplegable" style="display:none;">
+    <a href="">Mi perfil</a>
+    <a href="Ajustes.html">Configuración</a>
+    <a href="cerrar-sesion.html">Cerrar sesión</a>
+    <a href="nosotros-2.html">Sobre Nosotros</a>
+  </div>
+
+<main class="perfil-container">
+    <div class="perfil-layout">
+
+        <aside class="perfil-usuario-card">
+            <img src="img-principal/tiro-principal-del-hombre-normal-de-la-cara-103009511.webp" alt="Foto Usuario" class="profile-pic">
+            <div class="user-info">
+                <h2>Carlos Antonio Rodríguez Chicas</h2>
+                <p>Género: Masculino</p>
+            </div>
+        </aside>
+
+        <section class="info-cards-container">
+            <div class="info-card">
+                <div class="icon-text-wrapper">
+                    <img src="Imagenes - registro/Email.svg" alt="Correo" class="icon">
+                    <div class="info-text">
+                        <h3>Correo Electrónico</h3>
+                        <p>ejemplo@correo.com</p>
+                    </div>
+                </div>
+                <a href="#" class="edit-btn">Editar</a>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-text-wrapper">
+                    <img src="Imagenes - registro/locked.svg" alt="Contraseña" class="icon">
+                    <div class="info-text">
+                        <h3>Contraseña</h3>
+                        <p>********</p>
+                    </div>
+                </div>
+                <a href="#" class="edit-btn">Editar</a>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-text-wrapper">
+                    <img src="Imagenes - registro/date_range.svg" alt="Fecha de Nacimiento" class="icon">
+                    <div class="info-text">
+                        <h3>Fecha de nacimiento</h3>
+                        <p>14/07/2024</p>
+                    </div>
+                </div>
+                <a href="#" class="edit-btn">Editar</a>
+            </div>
+
+            <div class="info-card">
+                <div class="icon-text-wrapper">
+                    <img src="Imagenes - registro/account_circle.svg" alt="Teléfono" class="icon"> <div class="info-text">
+                        <h3>Teléfono</h3>
+                        <p>+503 1234 5678</p>
+                    </div>
+                </div>
+                <a href="#" class="edit-btn">Añadir</a>
+            </div>
+        </section>
+    </div>
+</main>
+<footer style="background-color: #1e1e1e; color: white; padding: 50px 20px 30px; font-family: 'Segoe UI', sans-serif; line-height: 1.6;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1200px; margin: auto;">
+      <div style="flex: 1 1 220px; margin-bottom: 20px;">
+        <h4 style="color: #f57c00;">MercaNova</h4>
+        <p style="line-height: 1.6;">Conectamos emprendedores con compradores de todo el país. Apoya lo local, compra inteligente.</p>
+      </div>
+      <div style="flex: 1 1 180px; margin-bottom: 20px;">
+        <h5 style="color: #f57c00;">Enlaces</h5>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="productos.html" style="color: #ccc; text-decoration: none;">Productos</a></li>
+          <li><a href="productos-destacados.html" style="color: #ccc; text-decoration: none;">Destacados</a></li>
+          <li><a href="nosotros.html" style="color: #ccc; text-decoration: none;">Nosotros</a></li>
+          <li><a href="perfil.html" style="color: #ccc; text-decoration: none;">Perfil</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 200px; margin-bottom: 20px;">
+        <h5 style="color: #f57c00;">Contacto</h5>
+        <p style="margin: 5px 0;"><strong>Email:</strong> contacto@mercanova.com</p>
+        <p style="margin: 5px 0;"><strong>Tel:</strong> +503 1234 5678</p>
+        <p style="margin: 5px 0;"><strong>Ubicación:</strong> San Salvador, El Salvador</p>
+      </div>
+      <div style="flex: 1 1 250px;">
+        <h5 style="color: #f57c00;">Suscríbete</h5>
+        <p>Recibe nuestras mejores ofertas en tu correo.</p>
+        <form onsubmit="alert('Gracias por suscribirte'); return false;">
+          <input type="email" placeholder="Tu correo electrónico" required style="padding: 10px; width: 100%; margin-bottom: 10px; border: none; border-radius: 5px;">
+          <button type="submit" style="background-color: #f57c00; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; max-width: 350px;">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+    <div style="text-align: center; padding-top: 20px; border-top: 1px solid #555; margin-top: 30px; font-size: 14px; color: #999;">
+      <p>&copy; 2025 MercaNova. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+<script>
+  // Script original (SIN CAMBIOS)
+  const contentBlocks = document.querySelectorAll('.content-block');
+    const valueCards = document.querySelectorAll('.value-card');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85
+      );
+    }
+
+    function animateOnScroll() {
+      contentBlocks.forEach((block) => {
+        if (!block.classList.contains('visible') && isInViewport(block)) {
+          block.classList.add('visible');
+        }
+      });
+      valueCards.forEach((card, i) => {
+        if (!card.classList.contains('show') && isInViewport(card)) {
+          setTimeout(() => card.classList.add('show'), i * 150);
+        }
+      });
+      testimonialCards.forEach((card, i) => {
+        if (!card.classList.contains('show') && isInViewport(card)) {
+          setTimeout(() => card.classList.add('show'), i * 200);
+        }
+      });
+    }
+      const menuBtn = document.getElementById('hamburguesaBtn');
+  const menuDesplegable = document.getElementById('menuDesplegable');
+
+  menuBtn.addEventListener('click', () => {
+    menuDesplegable.style.display = menuDesplegable.style.display === 'none' ? 'block' : 'none';
+  });
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+</script>
+</body>
+</html>
