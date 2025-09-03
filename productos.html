@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+      <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+
+  <!-- FontAwesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/productos.css">
+    
+</head>
+<body>
+   
+  <style>
+    #menuDesplegable {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 40px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    #menuDesplegable a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    #menuDesplegable a:hover {
+      background-color: #f57c00;
+      color: white;
+    }
+    #hamburguesaBtn{
+      cursor: pointer;
+    }
+        .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ff3c3c;
+      color: white;
+      border: none;
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .nav-button:hover {
+      background: #e82c2c;
+    }
+
+    .nav-left {
+      left: -20px;
+    }
+
+    .nav-right {
+      right: -20px;
+    }
+        /* Estilo para el contador de compras */
+#contador-compras .contador-numero {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #f57c00;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* ===== ESTILOS PARA FAVORITOS ===== */
+.favorito-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.favorito-btn:hover {
+  background-color: rgba(245, 124, 0, 0.1);
+}
+
+.heart-icon {
+  font-size: 1.5rem;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.heart-icon.active {
+  color: #f57c00;
+  font-weight: 900;
+}
+
+/* ===== ESTILOS PARA ALERTAS ===== */
+.sweet-popup {
+  border-radius: 12px !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.sweet-title {
+  color: #333 !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+}
+
+.sweet-confirm-btn {
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  padding: 8px 24px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.sweet-confirm-btn:hover {
+  background-color: #e67300 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Animación de corazón latiendo */
+@keyframes heartBeat {
+  0% { transform: scale(0.5); }
+  25% { transform: scale(1); }
+  40% { transform: scale(0.5); }
+  60% { transform: scale(1); }
+  100% { transform: scale(0.5); }
+}
+
+.swal2-heart {
+  color: #f57c00;
+  font-size: 4rem;
+  animation: heartBeat 1s cubic-bezier(0.4, 0, 0.6, 1) both;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para el botón comprar cuando está activo */
+.comprar.activo {
+  background-color: #FF5722 !important; /* Naranja */
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(255, 87, 34, 0.4);
+}
+
+/* Estilo para el contador de compras */
+#contador-compras .contador-numero {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #f57c00;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Animación para el botón */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.comprar.activo {
+  animation: pulse 0.5s ease;
+  color: #4ade80;
+}
+
+/* Estilos para el botón de carrito */
+.comprar {
+  background-color: #f57c00;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.comprar:hover {
+  background-color: #e65100;
+  transform: scale(1.1);
+}
+
+.comprar i {
+  font-size: 1.2rem;
+}
+
+/* Estado activo (producto en carrito) */
+.comprar.activo {
+  background-color: #4CAF50;
+}
+
+.comprar.activo i {
+  color: white;
+}
+
+/* Botón eliminar (aparece junto al carrito cuando está activo) */
+.eliminar-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  display: none;
+  transition: all 0.3s;
+}
+
+.comprar.activo + .eliminar-btn {
+  display: inline-block;
+}
+
+/* Agrega al final de tu CSS */
+.eliminar-btn {
+  background-color: #e74c3c !important;
+  color: white !important;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: none; /* Oculto por defecto */
+}
+
+.eliminar-btn:hover {
+  background-color: #c0392b !important;
+}
+
+/* Mostrar eliminar cuando el producto está comprado */
+.comprar.activo + .eliminar-btn {
+  display: inline-block;
+}
+
+  
+
+  </style>
+</head>
+<body>
+  <body>
+
+    <!-- Navegación superior -->
+    <nav>
+      <img src="img-principal/logo.png" alt="Logo MercaNova" class="logo" />
+      <div class="menu">
+        <a href="Index.html"><img src="img-principal/hogar.png" alt="Inicio" /></a>
+        <a href="productos.html"><img src="img-principal/caja-abierta.png" alt="Productos" /></a>
+        <a href="favoritos.html"><img src="img-principal/corazon.png" alt="Favoritos" /></a>
+        <a href="comprar.html" id="contador-compras" style="position: relative;">
+          <img src="img-principal/carrito-de-compras.png" alt="Carrito" />
+          <span class="contador-numero">0</span>
+        </a>
+  
+        <button id="hamburguesaBtn" style="background:none; border:none;">
+          <img src="img-principal/menu-hamburguesa.png" alt="Menú" style="width:18px; margin-left: 28px;" />
+        </button>
+      </div>
+    </nav>
+  
+    <!-- Menú desplegable -->
+    <div id="menuDesplegable">
+      <a href="Perfil-vendedor.html">Mi perfil</a>
+      <a href="ayuda-y-ajustes.html">Configuración</a>
+      <a href="nosotros.html">Sobre Nosotros</a>
+      <a href="comprador.html">Comprador</a>
+    </div>
+  
+
+<!--AQUI TERMINA EL NAV-->
+<div>
+  <img src="img-productos/IMGprincipal.png" alt="">
+
+</div>
+  </div>
+ 
+
+<div class="categorias">
+  <div class="categoria"><a href="Hogar.html">
+    <img src="img-productos/home.jpg" alt="Hogar">
+    <h3>Hogar</h3>
+  </a></div>
+  <div class="categoria"><a href="Ropa.html">
+    <img src="img-productos/ropa.jpg" alt="Ropa">
+    <h3>Ropa</h3>
+  </a></div>
+  <div class="categoria"><a href="Zapatos.html">
+    <img src="img-productos/zapatos.webp" alt="Libros">
+    <h3>Zapatos</h3>
+  </a></div>
+  <div class="categoria"><a href="Accesorios.html">
+    <img src="img-productos/accesorios.webp" alt="Electrónica">
+    <h3>Accesorios</h3>
+  </a></div>
+  <div class="categoria"><a href="Juguetes.html">
+    <img src="img-productos/image.png" alt="Jardín">
+    <h3>Juguetes</h3>
+  </a></div>
+</div>
+
+
+<!--CARRUSEL-->
+    <style>
+       
+    </style>
+
+     <!-- Slides -->
+  <div class="carousel-inner rounded-3 shadow-lg" id="Carrusel-ancho">
+    <div class="carousel-item active">
+      <img src="img-principal/8.png" class="d-block w-100" alt="Anuncio 2">
+    </div>
+    <div class="carousel-item">
+      <img src="img-principal/3.png" class="d-block w-100" alt="Anuncio 3">
+    </div>
+        <div class="carousel-item">
+      <img src="img-principal/1.png" class="d-block w-100" alt="Anuncio 4">
+    </div>
+        <div class="carousel-item">
+      <img src="img-principal/4.png" class="d-block w-100" alt="Anuncio 5">
+    </div>
+  </div>
+
+
+<!--CARRUSEL-->
+
+<!--AQUI VAAAN TODOSSS LOS PRODUCTOSSSS-->
+<section class="productos-section">
+  <div class="productos">
+    <div class="producto" data-id="1" data-nombre="Rack para Tv de 55'" data-precio="$78.99" data-img="img-productos/moduloTv1.jpg">
+      <img src="img-productos/moduloTv1.jpg" alt="Producto 1">
+      <h3>Rack para Tv de 55'</h3>
+      <p class="precio">$78.99</p>
+      <p>@MueblesPosada</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="2" data-nombre="Rack para Tv de 42'" data-precio="$84.00" data-img="img-productos/moduloTv2.jpg">
+      <img src="img-productos/moduloTv2.jpg" alt="Producto 2">
+      <h3>Rack para Tv de 42'</h3>
+      <p class="precio">$84.00</p>
+      <p>@CarpinteriaDonJose</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto"  data-id="3" data-nombre="Rank para Tv de 38'" data-precio="$70.00" data-img="img-productos/ModuloTv3.jpg">
+      <img src="img-productos/ModuloTv3.jpg" alt="Producto 3">
+      <h3>Rank para Tv de 38'</h3>
+      <p class="precio">$70.00</p>
+      <p>@MueblesPosada</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="4" data-nombre="Rank para Tv de 42' Claro" data-precio="$85.00" data-img="img-productos/moduloTv2claro.jpg">
+      <img src="img-productos/moduloTv2claro.jpg" alt="Producto 4">
+      <h3>Rank para Tv de 42'</h3>
+      <p class="precio">$85.00</p>
+      <p>@MueblesDonJose</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  
+
+  <div class="productos">
+    <div class="producto" data-id="6" data-nombre="Sala 2-1 Azul Rey" data-precio="$99.99" data-img="img-productos/sillon_azul.jpg">
+      <img src="img-productos/sillon_azul.jpg" alt="Sala 2-1 Azul Rey">
+      <h3>Sala 2-1 Azul Rey</h3>
+      <p class="precio">$99.99</p>
+      <p>@MueblesRoxana</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="7" data-nombre="Sala 3-3" data-precio="$158.00" data-img="img-productos/sillon_cafe.jpg">
+      <img src="img-productos/sillon_cafe.jpg" alt="Sala 3-3">
+      <h3>Sala 3-3</h3>
+      <p class="precio">$158.00</p>
+      <p>@MueblesRoxana</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="8" data-nombre="Sala 2-2 Simple" data-precio="$142.00" data-img="img-productos/sillon_gris.png">
+      <img src="img-productos/sillon_gris.png" alt="Sala 2-2 Simple">
+      <h3>Sala 2-2 Simple</h3>
+      <p class="precio">$142.00</p>
+      <p>@MueblesRoxana</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="9" data-nombre="Sala 3-2 Comodo" data-precio="$129.99" data-img="img-productos/sillon_cafeclaro.jpg">
+      <img src="img-productos/sillon_cafeclaro.jpg" alt="Sala 3-2 Comodo">
+      <h3>Sala 3-2 comodo</h3>
+      <p class="precio">$129.99</p>
+      <p>@MueblesRoxana</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <img src="img-productos/Anuncio2.png" id="img_anuncio2" alt="" style="margin-bottom: 15px;">
+
+<script src="js/productos.js"></script>
+
+ <!--AQUI VAAAN TODOSSS LOS PRODUCTOSSSS-->
+<section class="productos-section">
+  <div class="productos">
+    <div class="producto" data-id="1" data-nombre="Rack para Tv de 55'" data-precio="$78.99" data-img="img-productos/moduloTv1.jpg">
+      <img src="img-productos/moduloTv1.jpg" alt="Producto 1">
+      <h3>Rack para Tv de 55'</h3>
+      <p class="precio">$78.99</p>
+      <p>@MueblesPosada</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="2" data-nombre="Rack para Tv de 42'" data-precio="$84.00" data-img="img-productos/moduloTv2.jpg">
+      <img src="img-productos/moduloTv2.jpg" alt="Producto 2">
+      <h3>Rack para Tv de 42'</h3>
+      <p class="precio">$84.00</p>
+      <p>@CarpinteriaDonJose</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto"  data-id="3" data-nombre="Rank para Tv de 38'" data-precio="$70.00" data-img="img-productos/ModuloTv3.jpg">
+      <img src="img-productos/ModuloTv3.jpg" alt="Producto 3">
+      <h3>Rank para Tv de 38'</h3>
+      <p class="precio">$70.00</p>
+      <p>@MueblesPosada</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="4" data-nombre="Rank para Tv de 42' Claro" data-precio="$85.00" data-img="img-productos/moduloTv2claro.jpg">
+      <img src="img-productos/moduloTv2claro.jpg" alt="Producto 4">
+      <h3>Rank para Tv de 42'</h3>
+      <p class="precio">$85.00</p>
+      <p>@MueblesDonJose</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  
+
+  <div class="productos">
+    <div class="producto" data-id="6" data-nombre="Sala 2-1 Azul Rey" data-precio="$99.99" data-img="img-productos/sillon_azul.jpg">
+      <img src="img-productos/sillon_azul.jpg" alt="Sala 2-1 Azul Rey">
+      <h3>Sala 2-1 Azul Rey</h3>
+      <p class="precio">$99.99</p>
+      <p>@MueblesRoxana</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="7" data-nombre="Sala 3-3" data-precio="$158.00" data-img="img-productos/sillon_cafe.jpg">
+      <img src="img-productos/sillon_cafe.jpg" alt="Sala 3-3">
+      <h3>Sala 3-3</h3>
+      <p class="precio">$158.00</p>
+      <p>@MueblesRoxana</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="8" data-nombre="Sala 2-2 Simple" data-precio="$142.00" data-img="img-productos/sillon_gris.png">
+      <img src="img-productos/sillon_gris.png" alt="Sala 2-2 Simple">
+      <h3>Sala 2-2 Simple</h3>
+      <p class="precio">$142.00</p>
+      <p>@MueblesRoxana</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+
+    <div class="producto" data-id="9" data-nombre="Sala 3-2 Comodo" data-precio="$129.99" data-img="img-productos/sillon_cafeclaro.jpg">
+      <img src="img-productos/sillon_cafeclaro.jpg" alt="Sala 3-2 Comodo">
+      <h3>Sala 3-2 comodo</h3>
+      <p class="precio">$129.99</p>
+      <p>@MueblesRoxana</p>
+      <div class="acciones">
+        <button class="comprar"><i class="fas fa-shopping-cart"></i></button>
+        <button class="eliminar-btn"><i class="fas fa-trash"></i></button>
+        <button class="favorito-btn"><i class="far fa-heart heart-icon"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ <!-- Footer -->
+ <footer style="background-color: #1e1e1e; color: white; padding: 50px 20px 30px;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1200px; margin: auto;">
+    <div style="flex: 1 1 220px; margin-bottom: 20px;">
+      <h4 style="color: #f57c00;">MercaNova</h4>
+      <p>Conectamos emprendedores con compradores de todo el país.</p>
+    </div>
+    <div style="flex: 1 1 180px; margin-bottom: 20px;">
+      <h5 style="color: #f57c00;">Enlaces</h5>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="productos.html" style="color: #ccc;">Productos</a></li>
+        <li><a href="productos-destacados.html" style="color: #ccc;">Destacados</a></li>
+        <li><a href="nosotros.html" style="color: #ccc;">Nosotros</a></li>
+        <li><a href="perfil.html" style="color: #ccc;">Perfil</a></li>
+      </ul>
+    </div>
+    <div style="flex: 1 1 200px; margin-bottom: 20px;">
+      <h5 style="color: #f57c00;">Contacto</h5>
+      <p><strong>Email:</strong> contacto@mercanova.com</p>
+      <p><strong>Tel:</strong> +503 1234 5678</p>
+      <p><strong>Ubicación:</strong> San Salvador, El Salvador</p>
+    </div>
+    <div style="flex: 1 1 250px;">
+      <h5 style="color: #f57c00;">Suscríbete</h5>
+      <p>Recibe nuestras mejores ofertas en tu correo.</p>
+      <form onsubmit="alert('Gracias por suscribirte'); return false;">
+        <input type="email" placeholder="Tu correo electrónico" required style="padding: 10px; width: 100%; margin-bottom: 10px;" />
+        <button type="submit" style="background-color: #f57c00; color: white; padding: 10px 20px; border: none; border-radius: 10px;">Suscribirme</button>
+      </form>
+    </div>
+  </div>
+  <div style="text-align: center; padding-top: 20px; border-top: 1px solid #555; margin-top: 30px;">
+    <p>&copy; 2025 MercaNova. Todos los derechos reservados.</p>
+  </div>
+</footer>
+<!--Fin del footer-->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+
+  const menuBtn = document.getElementById('hamburguesaBtn');
+  const menuDesplegable = document.getElementById('menuDesplegable');
+
+  menuBtn.addEventListener('click', () => {
+    menuDesplegable.style.display = menuDesplegable.style.display === 'none' ? 'block' : 'none';
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!menuBtn.contains(event.target) && !menuDesplegable.contains(event.target)) {
+      menuDesplegable.style.display = 'none';
+    }
+  });
+  
+document.addEventListener('DOMContentLoaded', function() {
+  // Inicializar contador verificando localStorage
+  let contador = localStorage.getItem('comprasContador') ? parseInt(localStorage.getItem('comprasContador')) : 0;
+  const contadorElemento = document.querySelector('.contador-numero');
+  const botonesComprar = document.querySelectorAll('.comprar');
+
+  // Función para sincronizar el contador con los productos activos
+  function sincronizarContador() {
+    contador = 0;
+    botonesComprar.forEach(boton => {
+      if (localStorage.getItem(boton.id) === 'activo') {
+        contador++;
+      }
+    });
+    contadorElemento.textContent = contador;
+    localStorage.setItem('comprasContador', contador);
+  }
+
+  // Función para actualizar el estado
+  function actualizarEstado(boton, agregar) {
+    const producto = boton.closest('.producto, .producto-4');
+    const nombreProducto = producto.querySelector('h3').textContent;
+    const eliminarBtn = producto.querySelector('.eliminar-btn');
+    
+    if (agregar) {
+      boton.classList.add('activo');
+      eliminarBtn.style.display = 'inline-block';
+      localStorage.setItem(boton.id, 'activo');
+    } else {
+      boton.classList.remove('activo');
+      eliminarBtn.style.display = 'none';
+      localStorage.removeItem(boton.id);
+    }
+    
+    sincronizarContador();
+    
+    Swal.fire({
+      title: agregar ? `Producto agregado` : `Producto eliminado`,
+      text: `"${nombreProducto}" ${agregar ? 'agregado al carrito' : 'quitado del carrito'}`,
+      icon: agregar ? 'success' : 'info',
+      confirmButtonColor: '#f57c00',
+      timer: 2000
+    });
+  }
+
+  // Configurar botones de compra
+  botonesComprar.forEach((boton, index) => {
+    boton.id = `comprar-btn-${index}`;
+    
+    // Mostrar estado inicial
+    if (localStorage.getItem(boton.id) === 'activo') {
+      boton.classList.add('activo');
+      boton.nextElementSibling.style.display = 'inline-block';
+    }
+  });
+
+  // Sincronizar contador al cargar
+  sincronizarContador();
+
+  // Eventos
+  botonesComprar.forEach(boton => {
+    boton.addEventListener('click', function() {
+      const estaActivo = this.classList.contains('activo');
+      actualizarEstado(this, !estaActivo);
+    });
+  });
+
+  document.querySelectorAll('.eliminar-btn').forEach(boton => {
+    boton.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const comprarBtn = this.previousElementSibling;
+      actualizarEstado(comprarBtn, false);
+    });
+  });
+
+  // Botón para limpiar carrito (opcional)
+  document.getElementById('limpiar-carrito')?.addEventListener('click', function() {
+    botonesComprar.forEach(boton => {
+      if (boton.classList.contains('activo')) {
+        actualizarEstado(boton, false);
+      }
+    });
+  });
+});
+   // Manejar botones de favoritos
+document.addEventListener('DOMContentLoaded', function() {
+  const botonesFavorito = document.querySelectorAll('.favorito-btn');
+  
+  botonesFavorito.forEach(boton => {
+    boton.addEventListener('click', (e) => {
+      const heartIcon = e.currentTarget.querySelector('.heart-icon');
+      const isActive = heartIcon.classList.contains('active');
+      
+      // Cambiar estado del corazón
+      heartIcon.classList.toggle('active');
+      heartIcon.classList.toggle('far');
+      heartIcon.classList.toggle('fas');
+      
+      // Mostrar alerta solo al agregar (no al quitar)
+      if (!isActive) {
+        Swal.fire({
+          title: '¡Agregado a favoritos!',
+          html: '<div class="swal2-heart"><i class="fas fa-heart"></i></div>',
+          showConfirmButton: true,
+          confirmButtonColor: '#f57c00',
+          background: '#ffffff',
+          confirmButtonText: 'Aceptar',
+          customClass: {
+            popup: 'sweet-popup',
+            title: 'sweet-title',
+            confirmButton: 'sweet-confirm-btn'
+          }
+        });
+      }
+    });
+  });
+});
+      // Manejo favoritos por producto
+      const botonesFavorito = document.querySelectorAll(".favorito-btn");
+
+      botonesFavorito.forEach(boton => {
+        boton.addEventListener("click", () => {
+          const contenedor = boton.closest(".producto");
+          if (!contenedor) return; // seguridad
+
+          const producto = {
+  id: contenedor.dataset.id,
+  nombre: contenedor.dataset.nombre,
+  img: contenedor.dataset.img,
+  precio: contenedor.querySelector('.precio')?.textContent || "$0.00"
+};
+
+
+          let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+          const existe = favoritos.some(p => p.id === producto.id);
+
+          if (!existe) {
+            favoritos.push(producto);
+            localStorage.setItem("favoritos", JSON.stringify(favoritos));
+            boton.classList.add("favorito");
+          }
+        });
+      });
+
+    // Script para agregar al carrito 
+
+     document.addEventListener("DOMContentLoaded", function () {
+    const botonesComprar = document.querySelectorAll('.comprar');
+
+    botonesComprar.forEach(boton => {
+      boton.addEventListener('click', () => {
+        const contenedor = boton.closest(".producto");
+        if (!contenedor) return;
+
+        const producto = {
+          id: contenedor.dataset.id,
+          nombre: contenedor.dataset.nombre,
+          img: contenedor.dataset.img,
+          precio: contenedor.querySelector('.precio')?.textContent || "$0.00"
+        };
+
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const existe = carrito.some(p => p.id === producto.id);
+
+        if (!existe) {
+          carrito.push(producto);
+          localStorage.setItem("carrito", JSON.stringify(carrito));
+          boton.classList.add("en-carrito"); // opcional: agregar clase visual
+        }
+
+        // Actualiza contador del ícono carrito
+        document.querySelector(".contador-numero").textContent = carrito.length;
+      });
+    });
+
+    // Cargar cantidad en el ícono al cargar página
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    document.querySelector(".contador-numero").textContent = carrito.length;
+  });
+
+    // Scroll carrusel
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('carousel');
+      const cardWidth = carousel.querySelector('.card').offsetWidth;
+      carousel.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    }
+
+  // Mostrar el modal automáticamente después de 1 segundo (por ejemplo)
+  document.addEventListener("DOMContentLoaded", () => {
+    const linkAbrirModal = document.getElementById("abrir-modal");
+    const modal = document.getElementById("modal-fondo");
+    const linkInvitado = document.getElementById("btn-invitado");
+
+    // Abrir modal
+    linkAbrirModal.addEventListener("click", (e) => {
+      e.preventDefault(); // evita que el enlace haga scroll arriba
+      modal.classList.remove("oculto");
+      modal.classList.add("visible");
+    });
+
+    // Cerrar modal como invitado
+    linkInvitado.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.classList.remove("visible");
+      modal.classList.add("oculto");
+    });
+  });
+  </script>
+</html>
